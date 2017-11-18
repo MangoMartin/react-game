@@ -1,5 +1,31 @@
-/*body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}*/
+html {
+	background-color: #3498DB;
+}
+#CreateCharacter {
+	display: inline-block;
+	position: fixed;
+	font-family: '8BIT WONDER';
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -225px;
+}
+
+label {
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+}
+
+#blinker {
+	text-align: center;
+	font-size: 30px;
+}
+
+.default-mode {
+	display: none;
+}
+
+.non-default-mode {
+	display: block;
+}

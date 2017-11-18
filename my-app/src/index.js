@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App'; //change
+import CreateCharacter from './CreationContainer.js'
 import registerServiceWorker from './registerServiceWorker';
 
 
@@ -11,5 +11,5 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 
-ReactDOM.render(<Game />, document.getElementById('root'));
+ReactDOM.render(<CreateCharacter />, document.getElementById('root'));
 registerServiceWorker();
