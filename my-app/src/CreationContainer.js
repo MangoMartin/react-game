@@ -7,7 +7,7 @@ class CreateCharacter extends Component {
 		super();
 
 		this.state = {
-			isHidden : true
+			isBlinking : true
 		};
 
 		this.blinky = this.blinky.bind(this)
@@ -16,7 +16,7 @@ class CreateCharacter extends Component {
 	render(){
 		return(
 			<div 
-			id = 'CreateCharacter'>
+				className = 'CreateCharacter'>
 			<h1>Create Character</h1>
 			 
 			<label>Character Name :</label><input
@@ -37,9 +37,16 @@ class CreateCharacter extends Component {
 			
 			<div
 				id  = 'blinker'
-				className = {this.state.isHidden ? 'default-mode' : 'non-default-mode'}
+				className = {this.state.isBlinking ? 'default-mode' : 'non-default-mode'}
 				onLoad={this.blinky()}>
 				PRESS START
+			</div>
+			<div 
+				id = 'Creators'>
+				<h3>Design Team:</h3>
+						<h4>Sean</h4>
+						<h4>Ajax</h4>
+						<h4>Miko</h4>
 			</div>
 			</div>
 
@@ -48,9 +55,9 @@ class CreateCharacter extends Component {
 
 	blinky() {
 		setTimeout(() => {
-		let currentState = this.state.isHidden
+		let currentState = this.state.isBlinking
 		//console.log(this.state.isHidden)
-		this.setState({isHidden : !currentState})	
+		this.setState({isBlinking : !currentState})	
 	}, 500)}
 	
 }

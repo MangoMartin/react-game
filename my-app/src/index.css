@@ -1,7 +1,8 @@
 html {
 	background-color: #3498DB;
 }
-#CreateCharacter {
+
+.CreateCharacter {
 	display: inline-block;
 	position: fixed;
 	font-family: '8BIT WONDER';
@@ -9,6 +10,12 @@ html {
 	left: 50%;
 	margin-top: -100px;
 	margin-left: -225px;
+}
+
+#Creators {
+	position: fixed;
+	top: 75%;
+	left: 88%;
 }
 
 label {
@@ -23,9 +30,22 @@ label {
 }
 
 .default-mode {
-	display: none;
+	visibility: hidden;
 }
 
 .non-default-mode {
-	display: block;
+	visibility: visible;
+}
+
+.box {
+	margin: 0;
+	padding: 0;
+	height: 90%;
+	margin-left: 2%;
+	margin-top: 1%;
+	padding: 1%;
+	padding-bottom: 0;
+	overflow-x: auto;
+	overflow-y: auto;
+	max-height: 90%;
 }
