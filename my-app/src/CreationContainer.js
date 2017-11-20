@@ -18,23 +18,23 @@ class CreateCharacter extends Component {
 			<div 
 				className = 'CreateCharacter'>
 			<h1>Create Character</h1>
-			 
+
 			<label>Character Name :</label><input
 			type = 'text' /><br/>
-			<label>Race :</label> 
+			<label>Race :</label>
 				<select name="Race">
     				<option value="Human">Human</option>
     				<option value="Undead">Undead</option>
     				<option value="Elf">Elf</option>
     				<option value="Orc">Orc</option>
   				</select><br/>
-			<label>Gender :</label> 
+			<label>Gender :</label>
 				<select name="Gender">
 					<option value="Male">Male</option>
 					<option value="Female">Female</option>
 				</select>
 			<br/><br/>
-			
+
 			<div
 				id  = 'blinker'
 				className = {this.state.isBlinking ? 'default-mode' : 'non-default-mode'}
@@ -59,7 +59,7 @@ class CreateCharacter extends Component {
 		//console.log(this.state.isHidden)
 		this.setState({isBlinking : !currentState})	
 	}, 500)}
-	
+
 }
 
 export default CreateCharacter ;
