@@ -18,6 +18,19 @@ html {
 	left: 88%;
 }
 
+#ItemWindow { 
+	font-size: 20px;
+	background-color: gray;
+	border: 2px solid;
+	position: fixed;
+	right: 0%;
+	height: 650px;
+	max-height: 100%;
+	width: 400px;
+	margin-right: 10px;
+	border-radius: 25px;
+ }
+
 label {
 	display: inline-block;
 	width: 200px;
@@ -37,6 +50,14 @@ label {
 	visibility: visible;
 }
 
+.hide-window {
+	visibility: hidden;
+}
+
+.show-window {
+	visibility: visible;
+}
+
 .box {
 	margin: 0;
 	padding: 0;
@@ -49,3 +70,44 @@ label {
 	overflow-y: auto;
 	max-height: 90%;
 }
+
+.PlayerHUD {
+	border: 2px solid ;
+	font-family: '8BIT WONDER';
+	background-color: gray;
+	border-radius: 25px;
+}
+
+.PlayerHUD h1 {
+	font-size: 20px;
+	display: inline-block;
+}
+
+.PlayerHUD #toggleButtons {
+	position: fixed;
+	top: 20px ;
+	right: 15px;
+}
+
+.PlayerHUD #toggleButtons .button {
+	height: 50px;
+	width: 130px;
+	border-radius: 25px;
+	font-family: '8BIT WONDER';
+
+}
+
+.PlayerHUD h4 {
+	font-size: 20px;
+	position: fixed;
+	top: 0% ;
+	right: 35%;
+}
+
+.PlayerHUD h5 {
+	font-size: 20px;
+	position: fixed;
+	top: 5% ;
+	right: 45%;
+}
+

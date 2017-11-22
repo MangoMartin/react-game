@@ -6,7 +6,7 @@ export default class StyledBox extends Component {
 		return(
 			<Box  
 					id = {this.props.id}
-					className = {'styled-box' + (this.props.className || '')}
+					className = {'styled-box ' + (this.props.className || '')}
 			>
 			{this.props.children}
 			</Box>
@@ -20,7 +20,7 @@ export class Box extends Component {
 		return(
 			<div
 				id = {this.props.id || ''}
-				className = {'box' + (this.props.className	 || '')}
+				className = {'box ' + (this.props.className || '')}
 				style = {{
 					height : this.props.height || ''
 				}}
