@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import Box from './Container.js';
 import PlayerHUD from './PlayerContainer.js';
 import Inventory from './Items.js';
-import renderIf from 'render-if'
+import SceneContainer from './Scenes.js'
 
+//Parent Component
 class GameContainer extends Component {
 	constructor(props){
 		super(props); 
 
 		this.state = {
-			isInventoryHidden: false,
-			
+			isInventoryHidden: false	
 		}
 
 		this.newState = this.newState.bind(this);
@@ -19,10 +19,9 @@ class GameContainer extends Component {
 	render(){
 		return(
 			<div>
-			<PlayerHUD moreData = {this.newState} />
-			
+			<PlayerHUD changeState = {this.newState} />
 			<Inventory propsName = {this.state.isInventoryHidden} />
-			
+			<SceneContainer /> 
 			</div>
 			  ) 
 	}

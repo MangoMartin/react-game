@@ -17,7 +17,7 @@ class PlayerHUD extends Component {
 		//this.toggleInventory = this.toggleInventory.bind(this);
 	}
 
-	render(){
+	render() {
 		return(
 			<div
 				className = 'PlayerHUD'>
@@ -28,7 +28,7 @@ class PlayerHUD extends Component {
 			<div
 				id='toggleButtons'>
 			<input className='button' type='button' value='Settings' />
-			<input name='Items' className='button' type='button' value='Inventory' onClick={this.props.moreData} />
+			<input name='Items' className='button' type='button' value='Inventory' onClick={this.props.changeState} />
 			<br/>
 			<input className='button' type='button' value='Equipment' />
 			<input className='button' type='button' value='Exit Game' />

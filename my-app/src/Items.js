@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import PlayerHUD from './PlayerContainer.js';
 import StyledBox from './Container.js';
 
