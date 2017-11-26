@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import StyledBox from './Container.js'
-import CreateCharacter from './CreationContainer.js'
+import Box from './Container.js';
+import CreateCharacter from './CreationContainer.js';
 import registerServiceWorker from './registerServiceWorker';
-
+import GameContainer from './GameContainer.js';
+import Inventory from './Items.js';
 
 
 // import all(?) components
@@ -27,5 +28,5 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 
-ReactDOM.render(<StyledBox />, document.getElementById('root'));
+ReactDOM.render(<GameContainer />, document.getElementById('root'));
 registerServiceWorker();
