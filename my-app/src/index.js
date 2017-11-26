@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Box from './Container.js'
+import StyledBox from './Container.js'
 import CreateCharacter from './CreationContainer.js'
 import registerServiceWorker from './registerServiceWorker';
 
@@ -27,5 +27,5 @@ import registerServiceWorker from './registerServiceWorker';
 
 
 
-ReactDOM.render(<Box />, document.getElementById('root'));
+ReactDOM.render(<StyledBox />, document.getElementById('root'));
 registerServiceWorker();
