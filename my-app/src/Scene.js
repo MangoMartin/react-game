@@ -15,7 +15,7 @@ export class Scene {
 		this.level = level;
 		this.text = text;
 		this.buttons = buttons;
-		this.action =action;
+		this.actions = actions;
 	}
 
 	loadLevel (game) {

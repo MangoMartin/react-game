@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
+import {
+	Scene, 
+	SceneButton
+} from './Scene.js';
 import StyledBox from './Container.js';
+import {
+	GameText, 
+	ValueInput,
+	OptionSelect,
+	GameImage
+} from './GameMisc';
 
 class SceneContainer extends Component {
 
