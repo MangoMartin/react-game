@@ -4,7 +4,7 @@ import PlayerHUD from './PlayerContainer.js';
 import Inventory from './Items.js';
 import {
 	SceneContainer 
-} from './Scenes.js'
+} from './Scenes.js';
 
 //Parent Component
 class GameContainer extends Component {

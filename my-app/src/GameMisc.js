@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import StyledBox from './Container.js';
+
+import {
+  SceneContainer 
+} from './Scenes.js';
 // import {
 //   // applicable containers
 // } from './wherever we decide'
@@ -12,7 +16,7 @@ export class GameFullText extends Component {
     var text,
       extras = [];
     if(!this.props.isCurrentChannelNull) {
-      text = this.props.currentScene.getText(this.props.game);
+      text = this.props.currentScene.lvlText(this.props.game);
       let hasType = false;
       if(text.constructor === Array) {
         if(text[0] === 'string') {
@@ -35,7 +39,7 @@ export class GameFullText extends Component {
         })
       }
 
-      extras = this.props.currentScene.getExtras(this.props.game);
+      extras = this.props.currentScene.lvlActions(this.props.game);
 
     }
 

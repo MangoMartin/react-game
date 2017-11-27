@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
 	Scene, 
-	SceneButton
+	LevelButton
 } from './Scene.js';
 import StyledBox from './Container.js';
 import {
@@ -15,7 +15,7 @@ import {
 	ButtonsContainer
 } from './ButtonsContainer.js';
 
-export class SceneContainer extends Component {
+export class SceneContainer extends React.Component {
 
 	render(){
 		let currentScene = this.props.game.state.currentScene;
@@ -44,3 +44,39 @@ export class SceneContainer extends Component {
 	}
 }
 
+export var Scenes = {
+		Cave: new Scene('Cave', (game) => {
+		let text = "You are in a cave";
+
+		text += '\nSorry man.';
+
+		return text;
+	}, [
+		new LevelButton('Explore Cave', (game) => {
+			game.gotoScene(Scenes.Outside);
+		}),
+		new LevelButton('Procrastinate', (game) => {
+			game.gotoScene(Scenes.More_Cave);
+		})
+	], [['img', './images.jfif']]),
+		More_Cave: new Scene('Sitting in the cave', (game) => {
+		let text = "You are still in a cave";
+
+		return text;
+	}, [
+		new LevelButton('Get Back In the Game', (game) => {
+			game.gotoScene(Scenes.Cave);
+		})
+		], [['img', './images.jfif']]),
+		Outside: new Scene('Outside', (game) => {
+		let text = "Pretty shitty outside too";
+
+		text += '\nGo back in the cave maybe?';
+
+		return text;
+	}, [
+		new LevelButton('Go back to cave', (game) => {
+			game.gotoScene(Scenes.Cave);
+		}),
+	], [['img', './images.jfif']])
+};

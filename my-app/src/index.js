@@ -9,7 +9,7 @@ import GameContainer from './GameContainer.js';
 import Inventory from './Items.js';
 import {
 	Scene, 
-	SceneButton
+	LevelButton
 } from './Scene.js';
 import {
 	SceneContainer,
@@ -39,7 +39,7 @@ class Game extends React.Component {
 	}
 
 	componentDidMount () {
-		this.gotoScene(this.Scenes.characterSelection);
+		this.gotoScene(this.Scenes.Cave);
 	}
 
 	render () {
