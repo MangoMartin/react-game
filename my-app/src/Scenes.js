@@ -15,7 +15,7 @@ import {
 	ButtonsContainer
 } from './ButtonsContainer.js';
 
-class SceneContainer extends Component {
+export class SceneContainer extends Component {
 
 	render(){
 		let currentScene = this.props.game.state.currentScene;
@@ -44,4 +44,3 @@ class SceneContainer extends Component {
 	}
 }
 
-export default SceneContainer;

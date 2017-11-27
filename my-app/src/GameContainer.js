@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import Box from './Container.js';
 import PlayerHUD from './PlayerContainer.js';
 import Inventory from './Items.js';
-import SceneContainer from './Scenes.js'
+import {
+	SceneContainer 
+} from './Scenes.js'
 
 //Parent Component
 class GameContainer extends Component {
