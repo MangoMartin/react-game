@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-	Box
-} from './Container.js';
+import StyledBox from './Container.js';
 import {
 	ActionButton
 } from './GameMisc';

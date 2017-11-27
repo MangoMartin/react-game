@@ -7,29 +7,41 @@ import StyledBox from './Container.js';
 import {
 	GameText, 
 	ValueInput,
+	GameFullText, 
 	OptionSelect,
 	GameImage
 } from './GameMisc';
+import {
+	ButtonsContainer
+} from './ButtonsContainer.js';
 
 class SceneContainer extends Component {
 
 	render(){
-		return(
-			<StyledBox
-				className = 'SceneContainer'>
-				<img id= 'scene-image' src={require('./dogpics/images.jfif')} alt='image here'/>	
-				<p id='scene-text' >SCENE TEXT HERE</p> 
-				<div
-				 className = 'buttons'>
-				<input className='button-display' type='button' name='action1' value='button 1' />
-				<input className='button-display' type='button' name='action2' value='button 2' />
-				<input className='button-display' type='button' name='action3' value='button 3' />
-				</div>
-
-
-			</StyledBox> 
-		)
+		let currentScene = this.props.game.state.currentScene;
+		let isCurrentChannelNull = currentScene === null;
+		return (<StyledBox id="main-container" className="SceneContainer">
+			<GameImage 
+				isCurrentChannelNull={isCurrentChannelNull} 
+				game={this.props.game} 
+				currentScene={currentScene} 
+			/>
+			<p id="scene-text">
+			<GameFullText 
+				isCurrentChannelNull={isCurrentChannelNull} 
+				game={this.props.game} 
+				currentScene={currentScene} 
+			/>
+			</p>
+			<div className = 'buttons'>
+			<ButtonsContainer className='button-display'
+				isCurrentChannelNull={isCurrentChannelNull} 
+				game={this.props.game} 
+				currentScene={currentScene}
+			/>
+			</div>
+		</StyledBox>);
 	}
 }
 
-export default SceneContainer; 
+export default SceneContainer;
