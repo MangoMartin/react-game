@@ -75,15 +75,15 @@ export class Scene {
 }
 
 export class LevelButton { 
-	constructor (buttonText, buttonEvent, showButton) {
+	constructor (buttonText, onClick, showButton) {
 		if(!buttonText) buttonText = '!!! No button description !!!';
 
-		if(!buttonEvent) buttonEvent = () => alert("!!! placebo button !!!");
+		if(!onClick) onClick = () => alert("!!! placebo button !!!");
 
 		if(!showButton) showButton = true;
 		
 		this.buttonText = buttonText;
-		this.buttonEvent = buttonEvent;
+		this.onClick = onClick;
 		this.showButton = showButton;
 	}
 
