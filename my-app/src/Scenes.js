@@ -40,21 +40,27 @@ export class SceneContainer extends React.Component {
 }
 
 export var Scenes = {
-		Cave: new Scene('Cave', (game) => {
-		let text = "You are in a cave";
+	Cave: new Scene('Cave', (game) => {
+		let text = "You wake up in a dark cave. Your memory is a bit hazy and your head aches like you have a hangover. Where is this place and how did you get here?";
 	
 		return text;
 	}, 
 	[
-		new LevelButton('Explore Cave', (game) => {
-			game.nextLevel(Scenes.Outside);
+		new LevelButton("But I don't drink...", (game) => {
+			game.nextLevel(Scenes.Sobriety);
 		}),
-		new LevelButton('Procrastinate', (game) => {
+		new LevelButton("But I don't drink...anymore", (game) => {
+			game.nextLevel(Scenes.Sobriety);
+		}),
+		new LevelButton("Had one too many", (game) => {
+			game.nextLevel(Scenes.Bad_Choices);
+		}),
+		new LevelButton("Gotta leave this cave, now", (game) => {
 			game.nextLevel(Scenes.More_Cave);
-		})
-	], [['img', 'images.jfif']]),
-		More_Cave: new Scene('Sitting in the cave', (game) => {
-		let text = "You are still in a cave";
+		}),
+	], [['img', 'startercave.jpg']]),
+	Sobriety: new Scene('Cave', (game) => {
+		let text = "'I never touch the stuff' You are a bit worried about the circumstances of your situation now. How did you end up here in this state?";
 
 		return text;
 	}, [
