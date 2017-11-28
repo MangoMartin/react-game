@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import StyledBox from './Container.js';
+
 // import {
 //   // applicable containers
 // } from './wherever we decide'
@@ -10,14 +12,12 @@ export class GameFullText extends Component {
   render() {
     var text,
       extras = [];
-    if(!this.props.isCurrentChannelNull) {
-      text = this.props.currentScene.getText(this.props.game);
+    if(!this.props.noLevelPresent) {
+      text = this.props.presentLevel.lvlText(this.props.game);
       let hasType = false;
       if(text.constructor === Array) {
-        if(text[0] === 'string') {
-          // undefined in the repo
-        } else if (text[0] === 'react') {
-            hasType = true;
+        if (text[0] === 'react') {
+          hasType = true;
         }
         text = text[1];
       }
@@ -34,13 +34,13 @@ export class GameFullText extends Component {
         })
       }
 
-      extras = this.props.currentScene.getExtras(this.props.game);
+      extras = this.props.presentLevel.lvlEnvironment(this.props.game);
 
     }
 
     return(
-      <Container maxHeight='40%'>
-        {text}
+      <StyledBox>
+        
         {extras.map((val, index) => {
           if(typeof(val) === 'string') {
             return(
@@ -50,10 +50,11 @@ export class GameFullText extends Component {
               />
             );
           } else {
-              return val;
+            return val;
           }
         })}
-      </Container>);
+        {text}
+      </StyledBox>);
   }
 }
 
@@ -62,7 +63,7 @@ export class ActionButton extends Component {
   render() {
     return (
       <div
-        className='action-button'
+        className='button-display'
         onClick={this.props.onClick}
       >{this.props.text}</div>
     );
@@ -72,16 +73,14 @@ export class ActionButton extends Component {
 // formerly GameTitle
 export class MainTitle extends Component {
   render() {
-    return (<h1 className='main-title'>{this.props.text}</h1>)
+    return (<h5 id='level-title'>{this.props.text}</h5>)
   }
 }
 
 export class GameText extends Component {
   render() {
     return (
-      <div>
-        <p className='game-text'>{this.props.text}</p>
-      </div>
+        <p id='level-text'>{this.props.text}</p>
     );
   }
 }
@@ -161,7 +160,8 @@ export class OptionSelect extends Component {
 export class GameImage extends Component {
   render() {
     return (
-      <img
+      <img 
+        id = 'level-image'
         src={this.props.src}
         alt=''
       />
@@ -171,49 +171,49 @@ export class GameImage extends Component {
 
 //from style: display: 'inline', marginLeft: '5%'
 
-export class ItemMenu extends Component {
-  render() {
-    return (
-      <div class Name='item-menu'>
-        <h3>
-        {this.props.item.getName(this.props.game)}<DropdownMenu
-          style={{
+// export class ItemMenu extends Component {v
+//   render() {
+//     return (
+//       <div class Name='item-menu'>
+//         <h3>
+//         {this.props.item.getName(this.props.game)}<DropdownMenu
+//           style={{
 
-          }}
-          options={[
-            {
-              text: 'Discard',
-              onClick: () => {
-                if(confirm('Do you really want to throw out your ' + this.props.item.name + '?')){
-                  this.props.game.takePlayerItem(this.props.item);
-                }
-              },
-            },
-            {
-              // update this to perform an action instead of alert
-              text: 'Use',
-              onClick: () => alert('Use clicked!'),
-              show: this.props.item.type.includes('usable-item')
-            },
-            {
-              text:'Equip',
-              onClick: () => {
-                this.props.game.equipItem(this.props.item.id, this.props.game);
-              },
-              show: !this.props.item.equipped && !!this.props.item.equipType
-            },
-            {
-              text: 'Un-Equip',
-              onClick: () => {
-                this.props.game.unEquipItem(this.props.item.id, this.props.game);
-              },
-              show: !!this.props.item.equipped && !!this.props.item.equipType
-            }
-          ]}
-        />
-        </h3>
-        <p>{this.props.item.getDescription(this.props.game)}</p>
-      </div>
-    );
-  }
-}
+//           }}
+//           options={[
+//             {
+//               text: 'Discard',
+//               onClick: () => {
+//                 if(confirm('Do you really want to throw out your ' + this.props.item.name + '?')){
+//                   this.props.game.takePlayerItem(this.props.item);
+//                 }
+//               },
+//             },
+//             {
+//               // update this to perform an action instead of alert
+//               text: 'Use',
+//               onClick: () => alert('Use clicked!'),
+//               show: this.props.item.type.includes('usable-item')
+//             },
+//             {
+//               text:'Equip',
+//               onClick: () => {
+//                 this.props.game.equipItem(this.props.item.id, this.props.game);
+//               },
+//               show: !this.props.item.equipped && !!this.props.item.equipType
+//             },
+//             {
+//               text: 'Un-Equip',
+//               onClick: () => {
+//                 this.props.game.unEquipItem(this.props.item.id, this.props.game);
+//               },
+//               show: !!this.props.item.equipped && !!this.props.item.equipType
+//             }
+//           ]}
+//         />
+//         </h3>
+//         <p>{this.props.item.getDescription(this.props.game)}</p>
+//       </div>
+//     );
+//   }
+// }
