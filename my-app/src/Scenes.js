@@ -9,7 +9,8 @@ import {
 	ValueInput,
 	GameFullText, 
 	OptionSelect,
-	GameImage
+	GameImage,
+	MainTitle
 } from './GameMisc';
 import {
 	ButtonsContainer
@@ -18,18 +19,21 @@ import {
 export class SceneContainer extends React.Component {
 
 	render(){
-		let currentScene = this.props.game.state.currentScene;
-		let isCurrentChannelNull = currentScene === null;
+		let presentLevel = this.props.game.state.presentLevel;
+		let noLevelPresent = presentLevel === null;
 		return (<StyledBox className="SceneContainer">
+			<MainTitle 
+				text={(!noLevelPresent) ? presentLevel.loadLevel(this.props.game) : '.....'}
+			/>
 			<GameFullText 
-				isCurrentChannelNull={isCurrentChannelNull} 
+				noLevelPresent={noLevelPresent} 
 				game={this.props.game} 
-				currentScene={currentScene} 
+				presentLevel={presentLevel} 
 			/>
 			<ButtonsContainer 
-				isCurrentChannelNull={isCurrentChannelNull} 
+				noLevelPresent={noLevelPresent} 
 				game={this.props.game} 
-				currentScene={currentScene}
+				presentLevel={presentLevel}
 			/>
 		</StyledBox>);
 	}

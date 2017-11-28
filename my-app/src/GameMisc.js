@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import StyledBox from './Container.js';
 
-import {
-  SceneContainer 
-} from './Scenes.js';
 // import {
 //   // applicable containers
 // } from './wherever we decide'
@@ -15,14 +12,12 @@ export class GameFullText extends Component {
   render() {
     var text,
       extras = [];
-    if(!this.props.isCurrentChannelNull) {
-      text = this.props.currentScene.lvlText(this.props.game);
+    if(!this.props.noLevelPresent) {
+      text = this.props.presentLevel.lvlText(this.props.game);
       let hasType = false;
       if(text.constructor === Array) {
-        if(text[0] === 'string') {
-          // undefined in the repo
-        } else if (text[0] === 'react') {
-            hasType = true;
+        if (text[0] === 'react') {
+          hasType = true;
         }
         text = text[1];
       }
@@ -39,23 +34,23 @@ export class GameFullText extends Component {
         })
       }
 
-      extras = this.props.currentScene.lvlActions(this.props.game);
+      extras = this.props.presentLevel.lvlEnvironment(this.props.game);
 
     }
 
     return(
-      <StyledBox maxHeight='40%'>
+      <StyledBox>
         
         {extras.map((val, index) => {
           if(typeof(val) === 'string') {
             return(
-              <GameImage
+              <GameText
                 key={'GameTitle-' + index + '-Extra-' + (index*2)}
-                src={val}
+                text={val}
               />
             );
           } else {
-              return val;
+            return val;
           }
         })}
         {text}
@@ -78,16 +73,14 @@ export class ActionButton extends Component {
 // formerly GameTitle
 export class MainTitle extends Component {
   render() {
-    return (<h1 className='main-title'>{this.props.text}</h1>)
+    return (<h5 id='level-title'>{this.props.text}</h5>)
   }
 }
 
 export class GameText extends Component {
   render() {
     return (
-      <div>
         <p id='scene-text'>{this.props.text}</p>
-      </div>
     );
   }
 }

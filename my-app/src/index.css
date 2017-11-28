@@ -126,7 +126,7 @@ label {
 	display: inline-flex;
 	width: 100%;
 	text-align: center;
-	margin-top: 30%;
+	margin-top: 32%;
 	position: fixed;
 	top: 180px;
 	margin-bottom: 30%;
@@ -145,4 +145,8 @@ label {
 
 .SceneContainer #scene-text {
 	text-align: center;
+}
+
+#level-title {
+	display: inline;
 }

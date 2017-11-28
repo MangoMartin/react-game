@@ -20,7 +20,7 @@ class Game extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			currentScene: null,
+			presentLevel: null,
 			isInventoryHidden: false
 		}
 		this.Scenes = Scenes;
@@ -31,8 +31,8 @@ class Game extends React.Component {
 		if (scene !== null) {
 			this.setState((prevState, props) => {
 				return {
-					currentScene: scene,
-					currentSceneArgs: passArgs || prevState.currentSceneArgs
+					presentLevel: scene,
+					presentLevelArgs: passArgs || prevState.presentLevelArgs
 				};
 			});
 		}

@@ -4,10 +4,10 @@ import {
 	ActionButton
 } from './GameMisc';
 
-export class ButtonsContainer extends React.Component { // imported to GameContainer.js, Scenes.js, SituationalContainer.js, and index.js
+export class ButtonsContainer extends React.Component { 
 	render () {
 		return (<StyledBox className='buttons'> 
-			{((!this.props.isCurrentChannelNull) ? this.props.currentScene.buttons.map((button, index) => { //isCurrentChannelNull, currentScene
+			{((!this.props.noLevelPresent) ? this.props.presentLevel.buttons.map((button, index) => { 
 				if(button.loadButton(this.props.game)){
 					return (<ActionButton
 						key={"game-button-" + index + "-" + (index*2)} 
