@@ -137,25 +137,33 @@ label {
 
 .buttons {
 	display: inline-flex;
-	width: 100%;
 	text-align: center;
-	margin-top: 30%;
+	margin-top: 32%;
 	position: fixed;
-	top: 180px;
-	margin-bottom: 100px;
+	top: 160px;
+	border-right: 10%;
+	height: 150px;
+	width: 700px;
 }
 
 
-.SceneContainer .buttons .button-display {
-	height: 100px;
-	width: 370px;
+.button-display {
+	outline: 2px solid black;
+	margin-right: 5%;
+	height: 30%;
+	width: 50%;
+	background-color: red;
 }
 
-.SceneContainer #scene-image {
+.SceneContainer #level-image {
 	width: 100%;
 	height: 450px;
 }
 
-.SceneContainer #scene-text {
+.SceneContainer #level-text {
 	text-align: center;
+}
+
+#level-title {
+	display: inline;
 }
