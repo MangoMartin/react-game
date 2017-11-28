@@ -6,7 +6,7 @@ import {
 
 export class ButtonsContainer extends React.Component { // imported to GameContainer.js, Scenes.js, SituationalContainer.js, and index.js
 	render () {
-		return (<StyledBox id="buttons-container" className='button-display' maxHeight="40%"> 
+		return (<StyledBox className='buttons'> 
 			{((!this.props.isCurrentChannelNull) ? this.props.currentScene.buttons.map((button, index) => { //isCurrentChannelNull, currentScene
 				if(button.loadButton(this.props.game)){
 					return (<ActionButton

@@ -45,19 +45,20 @@ export class GameFullText extends Component {
 
     return(
       <StyledBox maxHeight='40%'>
-        {text}
+        
         {extras.map((val, index) => {
           if(typeof(val) === 'string') {
             return(
-              <GameText
+              <GameImage
                 key={'GameTitle-' + index + '-Extra-' + (index*2)}
-                text={val}
+                src={val}
               />
             );
           } else {
               return val;
           }
         })}
+        {text}
       </StyledBox>);
   }
 }
@@ -67,7 +68,7 @@ export class ActionButton extends Component {
   render() {
     return (
       <div
-        className='action-button'
+        className='button-display'
         onClick={this.props.onClick}
       >{this.props.text}</div>
     );
@@ -85,7 +86,7 @@ export class GameText extends Component {
   render() {
     return (
       <div>
-        <p className='game-text'>{this.props.text}</p>
+        <p id='scene-text'>{this.props.text}</p>
       </div>
     );
   }
@@ -166,7 +167,8 @@ export class OptionSelect extends Component {
 export class GameImage extends Component {
   render() {
     return (
-      <img
+      <img 
+        id = 'scene-image'
         src={this.props.src}
         alt=''
       />

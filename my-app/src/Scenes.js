@@ -20,26 +20,17 @@ export class SceneContainer extends React.Component {
 	render(){
 		let currentScene = this.props.game.state.currentScene;
 		let isCurrentChannelNull = currentScene === null;
-		return (<StyledBox id="main-container" className="SceneContainer">
-			<GameImage 
-				isCurrentChannelNull={isCurrentChannelNull} 
-				game={this.props.game} 
-				currentScene={currentScene} 
-			/>
-			<p id="scene-text">
+		return (<StyledBox className="SceneContainer">
 			<GameFullText 
 				isCurrentChannelNull={isCurrentChannelNull} 
 				game={this.props.game} 
 				currentScene={currentScene} 
 			/>
-			</p>
-			<div className = 'buttons'>
-			<ButtonsContainer className='button-display'
+			<ButtonsContainer 
 				isCurrentChannelNull={isCurrentChannelNull} 
 				game={this.props.game} 
 				currentScene={currentScene}
 			/>
-			</div>
 		</StyledBox>);
 	}
 }
@@ -47,18 +38,19 @@ export class SceneContainer extends React.Component {
 export var Scenes = {
 		Cave: new Scene('Cave', (game) => {
 		let text = "You are in a cave";
-
+		
 		text += '\nSorry man.';
-
+	
 		return text;
-	}, [
+	}, 
+	[
 		new LevelButton('Explore Cave', (game) => {
 			game.gotoScene(Scenes.Outside);
 		}),
 		new LevelButton('Procrastinate', (game) => {
 			game.gotoScene(Scenes.More_Cave);
 		})
-	], [['img', './images.jfif']]),
+	], [['img', 'images.jfif']]),
 		More_Cave: new Scene('Sitting in the cave', (game) => {
 		let text = "You are still in a cave";
 

@@ -8,41 +8,13 @@ import {
 
 export class Scene {
 	constructor (level, text, buttons, actions) {
-		if(!level) level = "?????"; 
 		if(!text) text = "!!! No text provided !!!";
 		if(!buttons) buttons = [];
 		if(!actions) actions = [];
 
-		this.level = level;
 		this.text = text;
 		this.buttons = buttons;
 		this.actions = actions;
-	}
-
-	loadLevel (game) {
-		let type = typeof(this.level);
-		
-		if (type === 'function') {
-			return this.level(game);
-		} else if (type === 'string') {
-			return this.level;
-		} else if (type === 'array') {
-			return this.level.join(' ');
-		}
-		return '!!! Invalid Text Type !!!';
-	}
-
-	lvlText (game) { 
-		let type = typeof(this.text);
-
-		if (type === 'function') {
-			return this.text(game);
-		} else if (type === 'string') {
-			return ['string', this.text];
-		} else if (type === 'array') {
-			return ['string', this.text.join(' ')]; 
-		}
-		return '!!! Invalid Text Type !!!';
 	}
 
 	lvlActions (game) {  
@@ -73,6 +45,20 @@ export class Scene {
 		}
 		return actions; 
 	}
+	lvlText (game) { 
+		let type = typeof(this.text);
+
+		if (type === 'function') {
+			return this.text(game);
+		} else if (type === 'string') {
+			return ['string', this.text];
+		} else if (type === 'array') {
+			return ['string', this.text.join(' ')]; 
+		}
+		return '!!! Invalid Text Type !!!';
+	}
+
+	
 }
 
 export class LevelButton { 
