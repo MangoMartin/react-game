@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import PlayerHUD from './PlayerContainer.js';
 import StyledBox from './Container.js';
+import {Food, Weapon} from './Item.js';
 
 class Inventory extends Component {
 
-
 	render(){
-		console.log(this.props.propsName)
 		return(
 			<div>
 				<StyledBox
 					id = 'ItemWindow'
 					className =  {this.props.propsName ? 'show-window' : 'hide-window'}
 					>
-
-					<h1>Items Go Here</h1>
+					<Food 
+						changeHealthPoints = {this.props.propsHP}
+						foodAmt = {this.props.propsFoodSupply}
+					 />
+					<Weapon />
 				</StyledBox>
 			</div>
 			)
