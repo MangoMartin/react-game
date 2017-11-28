@@ -80,7 +80,7 @@ export class MainTitle extends Component {
 export class GameText extends Component {
   render() {
     return (
-        <p id='scene-text'>{this.props.text}</p>
+        <p id='level-text'>{this.props.text}</p>
     );
   }
 }
@@ -161,7 +161,7 @@ export class GameImage extends Component {
   render() {
     return (
       <img 
-        id = 'scene-image'
+        id = 'level-image'
         src={this.props.src}
         alt=''
       />

@@ -42,17 +42,15 @@ export class SceneContainer extends React.Component {
 export var Scenes = {
 		Cave: new Scene('Cave', (game) => {
 		let text = "You are in a cave";
-		
-		text += '\nSorry man.';
 	
 		return text;
 	}, 
 	[
 		new LevelButton('Explore Cave', (game) => {
-			game.gotoScene(Scenes.Outside);
+			game.nextLevel(Scenes.Outside);
 		}),
 		new LevelButton('Procrastinate', (game) => {
-			game.gotoScene(Scenes.More_Cave);
+			game.nextLevel(Scenes.More_Cave);
 		})
 	], [['img', 'images.jfif']]),
 		More_Cave: new Scene('Sitting in the cave', (game) => {
@@ -61,7 +59,7 @@ export var Scenes = {
 		return text;
 	}, [
 		new LevelButton('Get Back In the Game', (game) => {
-			game.gotoScene(Scenes.Cave);
+			game.nextLevel(Scenes.Cave);
 		})
 		], [['img', './images.jfif']]),
 		Outside: new Scene('Outside', (game) => {
@@ -72,7 +70,7 @@ export var Scenes = {
 		return text;
 	}, [
 		new LevelButton('Go back to cave', (game) => {
-			game.gotoScene(Scenes.Cave);
+			game.nextLevel(Scenes.Cave);
 		}),
 	], [['img', './images.jfif']])
 };
