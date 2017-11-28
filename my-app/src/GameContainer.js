@@ -4,7 +4,7 @@ import PlayerHUD from './PlayerContainer.js';
 import Inventory from './Items.js';
 import SceneContainer from './Scenes.js';
 import {Food, Weapon} from './Item.js';
-
+import Equipment from './DropDown.js'
 //Parent Component
 class GameContainer extends Component {
 	constructor(props){
@@ -12,12 +12,14 @@ class GameContainer extends Component {
 
 		this.state = {
 			isInventoryHidden: false,
+			isEquipmentHidden: true, 
 			HP: 50,
 			foodSupply: 5
 		}
 
 		this.newState = this.newState.bind(this);
 		this.changeHP = this.changeHP.bind(this);
+		this.changeEquipView = this.changeEquipView.bind(this);
 	}
 
 	render(){
@@ -26,6 +28,7 @@ class GameContainer extends Component {
 			<PlayerHUD 
 				changeState = {this.newState}
 				HealthPoints = {this.state.HP} 
+				propsEquipmentView = {this.changeEquipView}
 				/>
 			<Inventory 
 				propsName = {this.state.isInventoryHidden} 
@@ -33,6 +36,7 @@ class GameContainer extends Component {
 				propsFoodSupply = {this.state.foodSupply}
 				/>
 			<SceneContainer /> 
+			<Equipment/> 
 			</div>
 			  ) 
 	}
@@ -48,15 +52,28 @@ class GameContainer extends Component {
 		let currentHP = this.state.HP;
 		let currentFoodSupply = this.state.foodSupply;
 		if(currentFoodSupply > 0) {
-		this.setState(
-		{
-			HP: currentHP + 10,
-			foodSupply: currentFoodSupply - 1
-		})}
+			this.setState({
+				HP: currentHP + 10,
+				foodSupply: currentFoodSupply - 1
+			})
+		}
+	}
+
+	changeEquipView() {
+		let currentEquipView = this.state.isEquipmentHidden;
+		if (this.state.isInventoryHidden === false) {
+			this.setState({
+				isInventoryHidden: true,
+				isEquipmentHidden: false
+			})
+		}
+		else {
+			this.setState({
+				isEquipmentHidden: false
+			})
+		}
 	}
 
 }
-
-
 
 export default GameContainer; 

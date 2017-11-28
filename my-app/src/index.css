@@ -34,11 +34,14 @@ html {
 #food-item {
 	font-size: 10px;
 	height: 200px;
+	width: 100px;
+	float: left;
 }
 
 #weapon-item {
 	font-size: 10px;
 	height: 200px;
+	width: 100px;
 }
 
 label {

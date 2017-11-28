@@ -10,7 +10,7 @@ export class Food extends Component {
 			<div>
 			<StyledBox
 				id = 'food-item'>
-				<img height = '100px' src={require('./item-images/260-0.png')} />
+				<img src={require('./item-images/260-0.png')} />
 				<h1>
 					Apple x {this.props.foodAmt} 
 				</h1>
@@ -36,7 +36,7 @@ export class Weapon extends Component {
 		return(
 			<StyledBox
 				id = 'weapon-item'>
-				<img height = '100px' src = {require('./item-images/267-0.png')} />
+				<img src = {require('./item-images/267-0.png')} />
 				<h1>
 					Sword x {this.state.WeaponStock}
 				</h1>
