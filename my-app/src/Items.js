@@ -10,7 +10,7 @@ class Inventory extends Component {
 			<div>
 				<StyledBox
 					id = 'ItemWindow'
-					className =  {this.props.propsName ? 'show-window' : 'hide-window'}
+					className =  {this.props.currentInventoryState ? 'show-window' : 'hide-window'}
 					>
 					<Food 
 						changeHealthPoints = {this.props.propsHP}

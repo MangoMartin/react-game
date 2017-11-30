@@ -5,7 +5,7 @@ html {
 .CreateCharacter {
 	display: inline-block;
 	position: fixed;
-	font-family: '8BIT WONDER';
+	font-family: 'Press Start 2P', cursive;
 	top: 50%;
 	left: 50%;
 	margin-top: -100px;
@@ -86,7 +86,7 @@ label {
 
 .PlayerHUD {
 	border: 2px solid ;
-	font-family: '8BIT WONDER';
+	font-family: 'Press Start 2P', cursive;
 	background-color: gray;
 	border-radius: 25px;
 }
@@ -106,7 +106,7 @@ label {
 	height: 50px;
 	width: 130px;
 	border-radius: 25px;
-	font-family: '8BIT WONDER';
+	font-family: 'Press Start 2P', cursive;
 
 }
 
@@ -114,7 +114,7 @@ label {
 	font-size: 20px;
 	position: fixed;
 	top: 0% ;
-	right: 35%;
+	right: 41%; 
 }
 
 .PlayerHUD h5 {
@@ -167,3 +167,24 @@ label {
 #level-title {
 	display: inline;
 }
+
+#contains-game {
+	background-color: green;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.state-hide { 
+	visibility: hidden;
+}
+
+.state-view {
+	visibility: visible;
+}
+
+input::-webkit-calendar-picker-indicator {
+              opacity: 100;
+           }

@@ -16,19 +16,18 @@ export class GameFullText extends Component {
       text = this.props.presentLevel.lvlText(this.props.game);
       let hasType = false;
       if(text.constructor === Array) {
-        if (text[0] === 'react') {
+         if (text[0] === 'react') {
           hasType = true;
         }
         text = text[1];
       }
 
-      if(!hasType && typeof(text) === 'string') {
-        text = text.split('\n').map((text, index) => {
-          console.log('Work it');
-          return(
-            <GameText
-              key={'GameTitle-' + index  + '-' + (index*2)}
-              text={text}
+        if(!hasType && typeof(text) === 'string') {
+          text = text.split('\n').map((text, index) => {
+            return(
+              <GameText
+                key={'GameTitle-' + index  + '-' + (index*2)}
+                text={text}
             />
           );
         })

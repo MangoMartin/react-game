@@ -7,8 +7,6 @@ class PlayerHUD extends Component {
 		super(props);
 
 		this.state = {
-			PlayerName: '',
-			Race: '',
 			Armor: 60
 		}
 		
@@ -19,14 +17,15 @@ class PlayerHUD extends Component {
 		return(
 			<div
 				className = 'PlayerHUD'>
-			<h1>Player Name: </h1>
-			<h3>Race: </h3> 
+			<h1>Player Name: {this.props.change_PlayerName} </h1>
+			<h3>Race: {this.props.chosenRace} </h3> 
+			<h3>Gender: {this.props.changedGender} </h3>
 			<h4>Health Points: {this.props.HealthPoints}/100 </h4> 
 			<h5>Armor: {this.state.Armor}/60</h5>
 			<div
 				id='toggleButtons'>
 			<input className='button' type='button' value='Settings' />
-			<input name='Items' className='button' type='button' value='Inventory' onClick={this.props.changeState} />
+			<input name='Items' className='button' type='button' value='Inventory' onClick={this.props.newerState} />
 			<br/> 
 			<input className='button' type='button' value='Equipment' onClick={this.props.propsEquipmentView} />
 			<input className='button' type='button' value='Exit Game' />

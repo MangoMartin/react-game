@@ -15,6 +15,9 @@ import {
 	SceneContainer,
 	Scenes 
 } from './Scenes.js';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<GameContainer />, document.getElementById('root'));
+ReactDOM.render(
+		<CreateCharacter />
+	, document.getElementById('root'));
 registerServiceWorker();
