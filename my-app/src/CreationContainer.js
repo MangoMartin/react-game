@@ -1,15 +1,15 @@
 // for character creation
 import React, { Component } from 'react';
-import {BrowserRouter as Router, 
+import {BrowserRouter as Router,
 		Link,
 		Route} from 'react-router-dom';
-import GameContainer from './GameContainer.js'
+import GameContainer from './GameContainer.js';
 import ReactDOM from 'react-dom';
-import PlayerContainer from './PlayerContainer.js'
+import PlayerContainer from './PlayerContainer.js';
 
 class CreateCharacter extends Component {
 
-	
+
 	constructor() {
 		super();
 
@@ -18,7 +18,7 @@ class CreateCharacter extends Component {
 			Race: '',
 			Gender: '',
 			isBlinking : true,
-			isGameHidden : true,
+			isGameHidden : true
 		};
 
 		this.blinky = this.blinky.bind(this)
@@ -26,20 +26,16 @@ class CreateCharacter extends Component {
 		this.handleChangeName = this.handleChangeName.bind(this)
 		this.chooseRace = this.chooseRace.bind(this)
 		this.changeGender = this.changeGender.bind(this)
-		
+
 	};
 
 	componentDidMount(){
 		window.addEventListener('keypress', this.handleKeyPress)
 	}
 
-	componentWillUnmount(){
-		window.addEventListener('keypress', this.handleKeyPress)
-	}
-
 	render(){
 		return(
-			<div 
+			<div
 				className = 'CreateCharacter'
 				>
 			<h1>Create Character</h1>
@@ -58,23 +54,23 @@ class CreateCharacter extends Component {
 					<option value="Male">Male</option>
 					<option value="Female">Female</option>
 				</datalist>
-			
+
 			<br/><br/>
 			<div
 				id  = 'blinker'
-				className = {this.state.isBlinking ? 'default-mode' : 'non-default-mode'}
+				className = {this.state.isBlinking ? 'hide' : 'view'}
 				onLoad={this.blinky()}
 				>
 				PRESS START
 			</div>
-			<div 
+			<div
 				id = 'Creators'>
 				<h3>Design Team:</h3>
 						<h4>Sean</h4>
 						<h4>Ajax</h4>
 						<h4>Miko</h4>
 			</div>
-			<GameContainer 
+			<GameContainer
 				changeThis = {this.state.isGameHidden}
 				change_playerName = {this.state.playerName}
 				change_Race = {this.state.Race}
@@ -82,18 +78,14 @@ class CreateCharacter extends Component {
 				inventory_state = {this.state.isInventoryHidden}
 				changeState = {this.newState}
 				 />
-				}
-				
-
 			</div>
-
 			)
 	}
 
 	blinky() {
 		setTimeout(() => {
 		let currentState = this.state.isBlinking
-		this.setState({isBlinking : !currentState})	
+		this.setState({isBlinking : !currentState})
 	}, 500)}
 
 	handleKeyPress(event){
@@ -111,7 +103,7 @@ class CreateCharacter extends Component {
 			playerName: event.target.value
 		})
 	}
-	
+
 	chooseRace(event){
 		this.setState({
 			Race : event.target.value
@@ -120,7 +112,7 @@ class CreateCharacter extends Component {
 
 	changeGender(event){
 		this.setState({
-			Gender : event.target.value 
+			Gender : event.target.value
 		})
 	}
 

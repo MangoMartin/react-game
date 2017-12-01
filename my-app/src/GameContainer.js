@@ -4,7 +4,7 @@ import PlayerHUD from './PlayerContainer.js';
 import Inventory from './Items.js';
 import {
 	SceneContainer,
-	Scenes 
+	Scenes
 } from './Scenes.js';
 
 import {Food, Weapon} from './Item.js';
@@ -13,12 +13,16 @@ import {Food, Weapon} from './Item.js';
 class GameContainer extends Component {
 	constructor (props) {
 		super(props);
+
 		this.state = {
 			presentLevel: null,
 			HP: 50,
 			foodSupply: 5,
-			isInventoryHidden : false
+			isInventoryHidden : false,
+			isDetonatorFound : false,
+			isRecordFound : false
 		}
+
 		this.Scenes = Scenes;
 		this.changeHP = this.changeHP.bind(this);
 		this.newState = this.newState.bind(this);
@@ -52,9 +56,9 @@ class GameContainer extends Component {
 				id = 'contains-game'
 				className = {this.props.changeThis ? 'state-hide' : 'state-view'}
 				>
-			<PlayerHUD 
+			<PlayerHUD
 				newerState = {this.newState}
-				HealthPoints = {this.state.HP} 
+				HealthPoints = {this.state.HP}
 				change_for_the_last_time = {this.props.changeThis}
 				chosenRace = {this.props.change_Race}
 				changedGender = {this.props.change_Gender}
@@ -65,9 +69,11 @@ class GameContainer extends Component {
 				currentInventoryState = {this.state.isInventoryHidden}
 				propsHP = {this.changeHP}
 				propsFoodSupply = {this.state.foodSupply}
-        		game={game}
+        game={game}
+				detonatorState = {this.state.isDetonatorFound}
+				recordState = {this.state.isRecordFound}
 				/>
-			<SceneContainer game={game}/> 
+			<SceneContainer game={game}/>
 			</div>
 			  );
 
@@ -88,12 +94,22 @@ class GameContainer extends Component {
 	newState(){
 		let currentState = this.state.isInventoryHidden
 		this.setState(
-			{ isInventoryHidden: !currentState,	
+			{ isInventoryHidden: !currentState,
 			}
 		)
 	}
 
+	changeDetonatorState(){
+		this.setState(
+			{ isDetonatorFound : true}
+		)
+	}
 
+	changeRecordState(){
+		this.setState(
+			{ isRecordFound : true}
+		)
+	}
 }
 
-export default GameContainer; 
+export default GameContainer;

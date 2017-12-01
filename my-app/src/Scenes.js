@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
-	Scene, 
+	Scene,
 	LevelButton
 } from './Scene.js';
 import StyledBox from './Container.js';
 import {
-	GameText, 
+	GameText,
 	ValueInput,
-	GameFullText, 
+	GameFullText,
 	OptionSelect,
 	GameImage,
 	MainTitle
@@ -20,19 +20,20 @@ export class SceneContainer extends React.Component {
 
 	render(){
 		let presentLevel = this.props.game.state.presentLevel;
+
 		let noLevelPresent = presentLevel === null;
 		return (<StyledBox className="SceneContainer">
-			<MainTitle 
+			<MainTitle
 				text={(!noLevelPresent) ? presentLevel.loadLevel(this.props.game) : '.....'}
 			/>
-			<GameFullText 
-				noLevelPresent={noLevelPresent} 
-				game={this.props.game} 
-				presentLevel={presentLevel} 
+			<GameFullText
+				noLevelPresent={noLevelPresent}
+				game={this.props.game}
+				presentLevel={presentLevel}
 			/>
-			<ButtonsContainer 
-				noLevelPresent={noLevelPresent} 
-				game={this.props.game} 
+			<ButtonsContainer
+				noLevelPresent={noLevelPresent}
+				game={this.props.game}
 				presentLevel={presentLevel}
 			/>
 		</StyledBox>);
@@ -42,9 +43,9 @@ export class SceneContainer extends React.Component {
 export var Scenes = {
 	Cave: new Scene('Cave', (game) => {
 		let text = "You wake up in a dark cave. Your memory is a bit hazy and your head aches like you have a hangover. Where is this place and how did you get here?";
-	
+
 		return text;
-	}, 
+	},
 	[
 		new LevelButton("But I don't drink...", (game) => {
 			game.nextLevel(Scenes.Sobriety);

@@ -7,7 +7,9 @@ class PlayerHUD extends Component {
 		super(props);
 
 		this.state = {
-			Armor: 60
+			Mana : 60,
+			Atk : 10,
+			Def : 10
 		}
 		
 		//this.toggleInventory = this.toggleInventory.bind(this);
@@ -21,7 +23,8 @@ class PlayerHUD extends Component {
 			<h3>Race: {this.props.chosenRace} </h3> 
 			<h3>Gender: {this.props.changedGender} </h3>
 			<h4>Health Points: {this.props.HealthPoints}/100 </h4> 
-			<h5>Armor: {this.state.Armor}/60</h5>
+			<h5>Mana: {this.state.Mana}/60</h5>
+			<h6> Atk: {this.state.Atk} / Def: {this.state.Def} </h6>
 			<div
 				id='toggleButtons'>
 			<input className='button' type='button' value='Settings' />
