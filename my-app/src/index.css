@@ -18,6 +18,27 @@ html {
 	left: 88%;
 }
 
+#equipment-tab {
+	font-family: 'Press Start 2P', cursive;
+	background-color: gray;
+	border: 2px solid;
+	position: fixed;
+	right: 0%;
+	height: 620px;
+	max-height: 100%;
+	width: 300px;
+	margin-right: 10px;
+	border-radius: 25px;
+	font-size : 10px ;
+}
+
+#equipment-tab .equipment {
+	font-size : 12px;
+	display : inline-grid ;
+	padding-top : 20px;
+	padding-bottom : 20px;
+}
+
 #ItemWindow {
 
 	font-family: 'Press Start 2P', cursive;

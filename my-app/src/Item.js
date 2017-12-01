@@ -12,10 +12,10 @@ export class Food extends Component {
 				id = 'food-item'>
 				<img src={require('./item-images/260-0.png')} />
 				<h1>
-					Fuji Apple x {this.props.foodAmt}
+					Fuji Apple x {this.props.foodSupply}
 				</h1>
-				<input className = 'button' type = 'button' value = 'Use' onClick={this.props.changeHealthPoints}/>
-				<input className = 'button' type = 'button' value = 'Throw Away' />
+				<input className = 'button' type = 'button' value = 'Use' onClick={this.props.changeHP}/>
+				<input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAway} />
 			</StyledBox>
 			</div>
 			)
@@ -24,24 +24,16 @@ export class Food extends Component {
 
 export class Weapon extends Component {
 
-	constructor(){
-		super();
-
-		this.state = {
-			WeaponStock: 1
-		}
-	}
-
 	render(){
 		return(
 			<StyledBox
 				id = 'weapon-item'>
 				<img src = {require('./item-images/267-0.png')} />
 				<h1>
-					Sword x {this.state.WeaponStock}
+					Sword x {this.props.Weapon}
 				</h1>
-				<input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
-				<input className = 'button' type = 'button' value = 'Throw Away' />
+				<input className = 'button' type = 'button' value = 'Equip' onClick={this.props.equipSword}/>
+				<input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAway} />
 			</StyledBox>
 		)
 	}
@@ -49,24 +41,16 @@ export class Weapon extends Component {
 
 export class Armor extends Component {
 
-	constructor(){
-		super();
-
-		this.state = {
-			ArmorStock: 1
-		}
-	}
-
 	render(){
 		return(
 			<StyledBox
 				id = 'armor-item'>
 			 <img src = {require('./item-images/311-0.png')} />
 			 <h1>
-			 	Chainmail x {this.state.ArmorStock}
+			 	Chainmail x {this.props.Armor}
 			 </h1>
-			 <input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
-			 <input className = 'button' type = 'button' value = 'Throw Away' />
+			 <input className = 'button' type = 'button' value = 'Equip' onClick={this.props.equipArmor}/>
+			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAway} />
 			</StyledBox>
 		)
 	}
@@ -74,24 +58,16 @@ export class Armor extends Component {
 
 export class Bread extends Component {
 
-		constructor(){
-			super();
-
-			this.state = {
-				Bread : 1
-			}
-		}
-
 		render(){
 			return(
 				<StyledBox
 					id = 'bread'>
 					<img src = {require('./item-images/297-0.png')} />
 	 			 <h1>
-	 			 	Stale Bread x {this.state.Bread}
+	 			 	Stale Bread x {this.props.Bread}
 	 			 </h1>
-	 			 <input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
-	 			 <input className = 'button' type = 'button' value = 'Throw Away' />
+	 			 <input className = 'button' type = 'button' value = 'Use' onClick={this.props.useBread}/>
+	 			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAwayBread}/>
 				</StyledBox>
 			)
 		}
@@ -113,10 +89,10 @@ export class Fish extends Component {
 					id = 'fish'>
 					<img src = {require('./item-images/349-2.png')} />
 	 			 <h1>
-	 			 	Poisonous Blowfish x {this.state.Fish}
+	 			 	Poisonous Blowfish x {this.props.Fish}
 	 			 </h1>
-	 			 <input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
-	 			 <input className = 'button' type = 'button' value = 'Throw Away' />
+	 			 <input className = 'button' type = 'button' value = 'Use' onClick={this.props.useFish}/>
+	 			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAwayFish} />
 				</StyledBox>
 			)
 		}
@@ -141,7 +117,7 @@ export class Explosives extends Component {
 	 			 	Explosives x {this.state.Explosives}
 	 			 </h1>
 	 			 <input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
-	 			 <input className = 'button' type = 'button' value = 'Throw Away' />
+	 			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAway}/>
 				</StyledBox>
 			)
 		}

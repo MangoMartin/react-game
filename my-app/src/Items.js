@@ -13,19 +13,36 @@ class Inventory extends Component {
 					className =  {this.props.currentInventoryState ? 'view' : 'hide'}
 					>
 					<Food
-						changeHealthPoints = {this.props.propsHP}
-						foodAmt = {this.props.propsFoodSupply}
+						changeHP = {this.props.changeHP}
+						foodSupply = {this.props.foodSupply}
+						throwAway = {this.props.throwAway}
 					 />
-					<Weapon />
-					<Armor />
-					<Bread />
-					<Fish />
-					<Explosives />
+					<Weapon
+						Weapon = {this.props.Weapon}
+						equipSword = {this.props.equipSword}
+						/>
+					<Armor
+						Armor = {this.props.Armor}
+						equipArmor = {this.props.equipArmor}
+					 	/>
+					<Bread
+						Bread = {this.props.Bread}
+						useBread = {this.props.useBread}
+						throwAwayBread = {this.props.throwAwayBread}
+						/>
+					<Fish
+						Fish = {this.props.Fish}
+						useFish = {this.props.useFish}
+						throwAwayFish = {this.props.throwAwayFish}
+						/>
+					<Explosives
+						/>
 					<Detonator
 						detonatorCurrentState = {this.props.detonatorState}
-						recordCurrentState = {this.props.recordState}
-					/>
-					<Record />
+						/>
+					<Record
+					 	recordCurrentState = {this.props.recordState}
+						/>
 				</StyledBox>
 			</div>
 			)
