@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  StyledBox,
-  Box
-  } from './Container.js';
+import StyledBox from './Container.js';
 
 export class GameFullText extends Component {
   render() {
@@ -22,7 +19,7 @@ export class GameFullText extends Component {
           text = text.split('\n').map((text, index) => {
             return(
               <GameText
-                key={'GameTitle-' + index  + '-' + (index*2)}
+                key={'MainTitle-' + index  + '-' + (index*2)}
                 text={text}
             />
           );
@@ -40,7 +37,7 @@ export class GameFullText extends Component {
           if(typeof(val) === 'string') {
             return(
               <GameText
-                key={'GameTitle-' + index + '-Extra-' + (index*2)}
+                key={'MainTitle-' + index + '-Extra-' + (index*2)}
                 text={val}
               />
             );
@@ -173,7 +170,7 @@ export class GameImage extends Component {
 //         <h3>
 //         {this.props.item.getName(this.props.game)}<DropdownMenu
 //           style={{
-// 
+//
 //           }}
 //           options={[
 //             {

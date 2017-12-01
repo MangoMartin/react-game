@@ -27,6 +27,8 @@ import Inventory from './Items.js';
 import PlayerHUD from './PlayerContainer.js';
 import CreateCharacter from './CreationContainer.js';
 import GameContainer from './GameContainer.js';
+import BackgroundAudio from './Sound.js';
+import sound from './audio/LabyrinthCut.mp3';
 
 import {
 	Scene,

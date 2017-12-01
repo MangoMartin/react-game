@@ -1,5 +1,4 @@
 // for character creation
-<<<<<<< HEAD
 import React, { Component } from 'react';
 import {
 		BrowserRouter as Router,
@@ -8,7 +7,9 @@ import {
 	} from 'react-router-dom';
 import GameContainer from './GameContainer.js'
 import ReactDOM from 'react-dom';
-import PlayerContainer from './PlayerContainer.js'
+import PlayerContainer from './PlayerContainer.js';
+import BackgroundAudio from './Sound.js';
+import sound from './audio/LabyrinthCut.mp3';
 
 
 class CreateCharacter extends Component {
@@ -40,7 +41,8 @@ class CreateCharacter extends Component {
 		window.addEventListener('keypress', this.handleKeyPress)
 	}
 
-	render(){
+	render() {
+
 		return(
 			<div
 				className = 'CreateCharacter'
@@ -77,7 +79,9 @@ class CreateCharacter extends Component {
 							<h4>Sean</h4>
 							<h4>Ajax</h4>
 							<h4>Miko</h4>
+
 				</div>
+
 
 				<GameContainer
 					changeThis = {this.state.isGameHidden}
@@ -87,11 +91,14 @@ class CreateCharacter extends Component {
 					inventory_state = {this.state.isInventoryHidden}
 					changeState = {this.newState}
 					 />
-					}
+
+				<BackgroundAudio />
 
 			</div>
 
 			)
+
+}
 
 	blinky() {
 		setTimeout(() => {
