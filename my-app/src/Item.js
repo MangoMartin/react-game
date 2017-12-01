@@ -116,7 +116,7 @@ export class Explosives extends Component {
 	 			 <h1>
 	 			 	Explosives x {this.state.Explosives}
 	 			 </h1>
-	 			 <input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
+	 			 <input className = 'button' type = 'button' value = 'Use' onClick={this.props.detonateExplosives}/>
 	 			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAway}/>
 				</StyledBox>
 			)

@@ -33,7 +33,7 @@ class GameContainer extends Component {
 			equippedWeaponName : '',
 			equippedArmorImage : '',
 			equippedArmorName : '',
-			isInventoryHidden : false,
+			isInventoryHidden : true,
 			isDetonatorFound : false,
 			isRecordFound : false,
 			isEquipmentHidden : true
@@ -50,7 +50,7 @@ class GameContainer extends Component {
 		this.viewEquip = this.viewEquip.bind(this);
 		this.equipSword = this.equipSword.bind(this);
 		this.equipArmor = this.equipArmor.bind(this);
-
+		this.detonateExplosives = this.detonateExplosives.bind(this);
 	}
 
 
@@ -112,6 +112,7 @@ class GameContainer extends Component {
 				throwAwayFish = {this.throwAwayFish}
 				equipSword = {this.equipSword}
 				equipArmor = {this.equipArmor}
+				detonateExplosives = {this.detonateExplosives}
 				/>
 			<Equipment
 			  isEquipmentHidden = {this.state.isEquipmentHidden}
@@ -140,10 +141,18 @@ class GameContainer extends Component {
 
 	newState(){
 		let currentState = this.state.isInventoryHidden
-
 		this.setState(
-			{ isInventoryHidden: !currentState
+			{ isInventoryHidden: false,
+				isEquipmentHidden : true
 			}
+		)
+	}
+
+	viewEquip(){
+		let currentEquipState = this.state.isEquipmentHidden;
+		this.setState(
+			{ isInventoryHidden : true,
+				isEquipmentHidden : false }
 		)
 	}
 
@@ -192,44 +201,56 @@ class GameContainer extends Component {
 		this.setState(
 			{ Fish : currentFishSupply - 1,
 				HP : currentHP - 50 }
-		)}
+		)
+		alert('who would have thought eating the poisonous blowfish would be poisonous? You lose 50 HP')
+		}
 	}
 
 	throwAwayFish() {
 		let currentFoodSupply = this.state.Fish;
+		let HP = this.state.HP;
 		if(currentFoodSupply > 0) {
 		this.setState(
-			{ Fish : currentFoodSupply - 1 }
-		)}
-	}
-
-	viewEquip(){
-		let currentEquipState = this.state.isEquipmentHidden;
-		this.setState(
-			{ isEquipmentHidden : !currentEquipState }
+			{ Fish : currentFoodSupply - 1,
+			  HP : HP - 50  }
 		)
+		alert('Attempting to throw the blowfish agitates it, causing it to flail its poisonous quills into your face, damaging you by 50HP')
+		}
+
 	}
 
 	equipSword(){
+		let Weapon = this.state.Weapon;
 		let equippedWeaponName = this.state.equippedWeapon;
 		let imageOfaSword = weapon_image;
 		let Atk = this.state.Atk;
+		if(Weapon > 0){
 		this.setState(
 			{ equippedWeaponImage : imageOfaSword,
 				equippedWeaponName : 'Sword',
-			  Atk : Atk + 10 }
-		)
+			  Atk : Atk + 10,
+			 	Weapon : Weapon - 1 }
+		)}
 	}
 
 	equipArmor(){
+		let Armor = this.state.Armor;
 		let equippedArmorName = this.state.equippedArmorName;
 		let imageOfanArmor = armor_image;
 		let Def = this.state.Def;
+		if (Armor > 0){
 		this.setState(
 			{ equippedArmorImage : imageOfanArmor,
 			  equippedArmorName : 'Chainmail',
-			  Def : Def + 10 }
-		)
+			  Def : Def + 10,
+			  Armor : Armor - 1 }
+		)}
+	}
+
+	detonateExplosives(){
+		if(this.state.isDetonatorFound === false) {
+			alert('You need a detonator to use Explosives..')
+		}
 	}
 }
 

@@ -10,7 +10,7 @@ class Inventory extends Component {
 			<div>
 				<StyledBox
 					id = 'ItemWindow'
-					className =  {this.props.currentInventoryState ? 'view' : 'hide'}
+					className =  {this.props.currentInventoryState ? 'hide' : 'view'}
 					>
 					<Food
 						changeHP = {this.props.changeHP}
@@ -36,6 +36,7 @@ class Inventory extends Component {
 						throwAwayFish = {this.props.throwAwayFish}
 						/>
 					<Explosives
+						detonateExplosives = {this.props.detonateExplosives}
 						/>
 					<Detonator
 						detonatorCurrentState = {this.props.detonatorState}
