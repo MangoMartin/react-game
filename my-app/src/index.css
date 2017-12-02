@@ -18,9 +18,13 @@ html {
 	left: 88%;
 }
 
+#basic-info {
+
+}
+
 #equipment-tab {
 	font-family: 'Press Start 2P', cursive;
-	background-color: gray;
+	background-color: black;
 	border: 2px solid;
 	position: fixed;
 	right: 0%;
@@ -40,9 +44,8 @@ html {
 }
 
 #ItemWindow {
-
 	font-family: 'Press Start 2P', cursive;
-	background-color: gray;
+	background-color: black;
 	border: 2px solid;
 	position: fixed;
 	right: 0%;
@@ -191,59 +194,67 @@ label {
 }
 
 .PlayerHUD {
+	display: flex;
+	justify-content: space-between;
 	border: 2px solid ;
 	font-family: 'Press Start 2P', cursive;
-	background-color: gray;
-	border-radius: 25px;
+	background-color: black;
+	border-radius: 15px;
 }
 
 .PlayerHUD h1 {
 	font-size: 20px;
 	display: inline-block;
+	margin-top : 15px;
+	margin-bottom : 15px;
 }
 
 .PlayerHUD #toggleButtons {
-	position: fixed;
-	top: 20px ;
-	right: 15px;
+	margin-top : 10px;
+	margin-right : 10px;
 }
 
 .PlayerHUD #toggleButtons .button {
-	height: 50px;
+	height: 60px;
 	width: 130px;
-	border-radius: 25px;
+	border-radius: 15px;
 	font-family: 'Press Start 2P', cursive;
+}
+
+.PlayerHUD h3 {
+	font-size: 20px;
+	margin-top : 0px;
+	margin-bottom : 15px;
 }
 
 .PlayerHUD h4 {
 	font-size: 20px;
-	position: fixed;
-	top: 0% ;
-	right: 41%;
+
+	margin-top : 15px;
+	margin-bottom : 15px;
 }
 
 .PlayerHUD h5 {
 	font-size: 20px;
-	position: fixed;
-	top: 5% ;
-	right: 45%;
+	margin-top : 15px;
+	margin-bottom : 15px;
 }
 
 .PlayerHUD h6 {
 	font-size: 20px;
-	position: fixed;
-	top: 8%;
-	right: 45%;
+	margin-top : 15px;
+	margin-bottom : 15px;
 }
 
 .SceneContainer {
 	border: 2px solid;
 	display: inline-block;
-	width: 1125px;
+	width: 100%;
+	max-width: 1100px;
 	height: 620px;
 	border-radius: 25px;
-	background-color: gray;
-	margin-left: 0.5% ;
+	background-color: black;
+	margin-left: 1.5% ;
 
 }
 
@@ -252,10 +263,10 @@ label {
 	text-align: center;
 	margin-top: 32%;
 	position: fixed;
-	top: 160px;
+	top: 150px;
 	border-right: 10%;
-	height: 150px;
-	width: 700px;
+	height: 300px;
+	width: 900px;
 }
 
 
@@ -265,6 +276,7 @@ label {
 	height: 30%;
 	width: 50%;
 	background-color: red;
+	margin-top : 70px;
 }
 
 .SceneContainer #level-image {
@@ -281,7 +293,8 @@ label {
 }
 
 #contains-game {
-	background-color: green;
+	background-color: black;
+	color: white;
 	position: fixed;
 	top: 0px;
 	left: 0px;
