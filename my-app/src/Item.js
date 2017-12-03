@@ -119,7 +119,6 @@ export class Detonator extends Component {
 	 			 <h1>
 	 			 	Detonator x {this.props.Detonator}
 	 			 </h1>
-	 			 <input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
 	 			 <input className = 'button' type = 'button' value = 'Throw Away' />
 				</StyledBox>
 			)

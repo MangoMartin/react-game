@@ -232,7 +232,9 @@ class CreateCharacter extends Component {
 		let currentEquipState = this.state.isEquipmentHidden;
 		this.setState(
 			{ isInventoryHidden : true,
-				isEquipmentHidden : false }
+				isEquipmentHidden : false,
+			 	isDetonatorFound : false,
+				isRecordFound : false}
 		)
 	}
 
@@ -257,7 +259,7 @@ class CreateCharacter extends Component {
 		let currentHP = this.state.HP;
 		this.setState({
 			HP: currentHP - dmg
-		}) 
+		})
 	}
 
 	doDamage() {
@@ -376,12 +378,15 @@ class CreateCharacter extends Component {
 		if(this.state.isDetonatorFound === false) {
 			alert('You need a detonator to use Explosives..')
 		}
-		else {
+		else if(this.state.isDetonatorFound === true && this.state.Explosives > 0) {
 			let currentState = this.state.Explosives
 			this.setState(
 				{ Explosives : currentState - 1 }
 			)
 			alert('You just blew a freakin hole!')
+		}
+		else {
+			alert('Ran out of explosives!')
 		}
 	}
 
