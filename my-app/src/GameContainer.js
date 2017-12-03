@@ -15,14 +15,10 @@ class GameContainer extends Component {
 		super(props);
 
 		this.state = {
-			presentLevel: null,
-
-
+			presentLevel: null
 		}
-
 		this.Scenes = Scenes;
 	}
-
 
 	nextLevel (scene, passArgs) {
 		if (scene !== null) {
@@ -97,6 +93,8 @@ class GameContainer extends Component {
 				Armor = {this.props.Armor}
 				Bread = {this.props.Bread}
 				Fish = {this.props.Fish}
+				Detonator = {this.props.Detonator}
+				Explosives = {this.props.Explosives}
 				useBread = {this.props.useBread}
 				useFish = {this.props.useFish}
         game={game}
@@ -105,6 +103,7 @@ class GameContainer extends Component {
 				throwAway = {this.props.throwAway}
 				throwAwayBread = {this.props.throwAwayBread}
 				throwAwayFish = {this.props.throwAwayFish}
+				throwAwayExplosives = {this.props.throwAwayExplosives}
 				equipSword = {this.props.equipSword}
 				equipArmor = {this.props.equipArmor}
 				detonateExplosives = {this.props.detonateExplosives}
@@ -124,6 +123,7 @@ class GameContainer extends Component {
 			</div>
 			  );
 	}
+
 }
 
 export default GameContainer;

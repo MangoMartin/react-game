@@ -6,11 +6,12 @@ import {BrowserRouter as Router,
 import GameContainer from './GameContainer.js';
 import ReactDOM from 'react-dom';
 import PlayerContainer from './PlayerContainer.js';
+import BackgroundAudio from './Sound.js';
+import sound from './audio/LabyrinthCut.mp3';
 let weapon_image = require('./item-images/267-0.png');
 let armor_image = require('./item-images/311-0.png');
 
 class CreateCharacter extends Component {
-
 
 	constructor() {
 		super();
@@ -32,7 +33,7 @@ class CreateCharacter extends Component {
 			Armor : 1,
 			Bread : 3,
 			Fish : 1,
-			Explosives : 1,
+			Explosives : 2,
 			Detonator : 1,
 			Record : 1,
 			equippedWeaponImage : '',
@@ -44,12 +45,12 @@ class CreateCharacter extends Component {
 			enemyLife: 100
 		};
 
-		this.blinky = this.blinky.bind(this)
-		this.handleKeyPress = this.handleKeyPress.bind(this)
-		this.handleChangeName = this.handleChangeName.bind(this)
-		this.chooseRace = this.chooseRace.bind(this)
-		this.changeGender = this.changeGender.bind(this)
-		this.exitGame	= this.exitGame.bind(this)
+		this.blinky = this.blinky.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this);
+		this.handleChangeName = this.handleChangeName.bind(this);
+		this.chooseRace = this.chooseRace.bind(this);
+		this.changeGender = this.changeGender.bind(this);
+		this.exitGame	= this.exitGame.bind(this);
 		this.viewInventory = this.viewInventory.bind(this);
 		this.viewEquip = this.viewEquip.bind(this);
 		this.changeHP = this.changeHP.bind(this);
@@ -65,6 +66,7 @@ class CreateCharacter extends Component {
 		this.doDamage = this.doDamage.bind(this);
 		this.changeDetonatorState = this.changeDetonatorState.bind(this);
 		this.changeRecordState = this.changeRecordState.bind(this);
+		this.throwAwayExplosives = this.throwAwayExplosives.bind(this);
 	};
 
 	componentDidMount(){
@@ -120,6 +122,7 @@ class CreateCharacter extends Component {
 				throwAway = {this.throwAway}
 				throwAwayBread = {this.throwAwayBread}
 				throwAwayFish = {this.throwAwayFish}
+				throwAwayExplosives = {this.throwAwayExplosives}
 				equipSword = {this.equipSword}
 				equipArmor = {this.equipArmor}
 				viewInventory = {this.viewInventory}
@@ -149,10 +152,14 @@ class CreateCharacter extends Component {
 				equippedWeaponName = {this.state.equippedWeaponName}
 				equippedArmorImage = {this.state.equippedArmorImage}
 				equippedArmorName = {this.state.equippedArmorName}
+				detonateExplosives = {this.detonateExplosives}
+				isDetonatorFound = {this.state.isDetonatorFound}
+				isRecordFound = {this.state.isRecordFound}
 				 />
+  		<BackgroundAudio />
 			</div>
 			)
-	}
+}
 
 	blinky() {
 		setTimeout(() => {
@@ -171,8 +178,6 @@ class CreateCharacter extends Component {
 	}
 
 	exitGame() {
-		console.log(this.state.isInventoryHidden)
-		console.log(this.state.isEquipmentHidden)
 		this.setState(
 			{
 				playerName : '',
@@ -187,16 +192,13 @@ class CreateCharacter extends Component {
 				Armor : 1,
 				Bread : 3,
 				Fish : 1,
-				Explosives : 1,
+				Explosives : 2,
 				Detonator : 1,
 				Record : 1,
-
 				isInventoryHidden: true,
 				isEquipmentHidden: true,
 				isGameHidden: true }
 		)
-		console.log(this.state.isInventoryHidden)
-		console.log(this.state.isEquipmentHidden)
 	}
 
 	handleChangeName(event){
@@ -285,6 +287,9 @@ class CreateCharacter extends Component {
 		this.setState(
 			{ foodSupply : currentFoodSupply - 1 }
 		)}
+		else {
+			alert('No more apples to throw away!')
+		}
 	}
 
 	useBread(){
@@ -309,6 +314,9 @@ class CreateCharacter extends Component {
 		this.setState(
 			{ Bread : currentFoodSupply - 1 }
 		)}
+		else {
+			alert('Stop wasting food!')
+		}
 	}
 
 	useFish(){
@@ -367,6 +375,24 @@ class CreateCharacter extends Component {
 	detonateExplosives(){
 		if(this.state.isDetonatorFound === false) {
 			alert('You need a detonator to use Explosives..')
+		}
+		else {
+			let currentState = this.state.Explosives
+			this.setState(
+				{ Explosives : currentState - 1 }
+			)
+			alert('You just blew a freakin hole!')
+		}
+	}
+
+	throwAwayExplosives() {
+		let currentState = this.state.Explosives
+		if(currentState > 0) {
+		this.setState(
+			{ Explosives : currentState - 1 }
+		)}
+		else {
+			alert('No more explosives to throw away!')
 		}
 	}
 

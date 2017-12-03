@@ -47,7 +47,7 @@ export class Armor extends Component {
 				id = 'armor-item'>
 			 <img src = {require('./item-images/311-0.png')} />
 			 <h1>
-			 	Chainmail x {this.props.Armor}
+			 		Chainmail x {this.props.Armor}
 			 </h1>
 			 <input className = 'button' type = 'button' value = 'Equip' onClick={this.props.equipArmor}/>
 			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAway} />
@@ -64,7 +64,7 @@ export class Bread extends Component {
 					id = 'bread'>
 					<img src = {require('./item-images/297-0.png')} />
 	 			 <h1>
-	 			 	Stale Bread x {this.props.Bread}
+	 			 		Stale Bread x {this.props.Bread}
 	 			 </h1>
 	 			 <input className = 'button' type = 'button' value = 'Use' onClick={this.props.useBread}/>
 	 			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAwayBread}/>
@@ -74,14 +74,6 @@ export class Bread extends Component {
 }
 
 export class Fish extends Component {
-
-		constructor(){
-			super();
-
-			this.state = {
-				Fish : 1
-			}
-		}
 
 		render(){
 			return(
@@ -100,13 +92,6 @@ export class Fish extends Component {
 
 export class Explosives extends Component {
 
-		constructor(){
-			super();
-
-			this.state = {
-				Explosives : 1
-			}
-		}
 
 		render(){
 			return(
@@ -114,24 +99,16 @@ export class Explosives extends Component {
 					id = 'explosives'>
 					<img src = {require('./item-images/46-0.png')} />
 	 			 <h1>
-	 			 	Explosives x {this.state.Explosives}
+	 			 	Explosives x {this.props.Explosives}
 	 			 </h1>
 	 			 <input className = 'button' type = 'button' value = 'Use' onClick={this.props.detonateExplosives}/>
-	 			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAway}/>
+	 			 <input className = 'button' type = 'button' value = 'Throw Away' onClick={this.props.throwAwayExplosives}/>
 				</StyledBox>
 			)
 		}
 }
 
 export class Detonator extends Component {
-
-		constructor(){
-			super();
-
-			this.state = {
-				Detonator : 1,
-			}
-		}
 
 		render(){
 			return(
@@ -140,7 +117,7 @@ export class Detonator extends Component {
 					className = {this.props.detonatorCurrentState ? 'view' : 'hide'}>
 					<img src = {require('./item-images/407-0.png')} />
 	 			 <h1>
-	 			 	Explosives x {this.state.Detonator}
+	 			 	Detonator x {this.props.Detonator}
 	 			 </h1>
 	 			 <input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
 	 			 <input className = 'button' type = 'button' value = 'Throw Away' />
@@ -151,14 +128,6 @@ export class Detonator extends Component {
 
 export class Record extends Component {
 
-	constructor(){
-		super();
-
-		this.state = {
-			Record : 1
-		}
-	}
-
 	render(){
 		return(
 			<StyledBox
@@ -167,7 +136,7 @@ export class Record extends Component {
 				>
 				<img src = {require('./item-images/2260-0.png')} />
 			 <h1>
-				Record x {this.state.Record}
+				Record x {this.props.Record}
 			 </h1>
 			 <input className = 'button' type = 'button' value = 'Use' onClick={'#'}/>
 			 <input className = 'button' type = 'button' value = 'Throw Away' />
