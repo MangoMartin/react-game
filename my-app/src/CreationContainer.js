@@ -69,6 +69,7 @@ class CreateCharacter extends Component {
 		this.changeRecordState = this.changeRecordState.bind(this);
 		this.throwAwayExplosives = this.throwAwayExplosives.bind(this);
 		this.receiveMoney = this.receiveMoney.bind(this);
+		this.detonateExplosives = this.detonateExplosives.bind(this);
 	};
 
 	componentDidMount(){

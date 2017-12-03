@@ -20,7 +20,6 @@ export class SceneContainer extends React.Component {
 
 	render(){
 		let presentLevel = this.props.game.state.presentLevel;
-
 		let noLevelPresent = presentLevel === null;
 		return (<StyledBox className="SceneContainer">
 			<MainTitle
@@ -225,9 +224,20 @@ export var Scenes = {
 			game.nextLevel(Scenes.Fight1);
 		}),
 		new LevelButton('Coward it out', (game) => {
-			game.nextLevel(Scenes.First_Encounter);
+			game.nextLevel(Scenes.Coward);
+			game.froggo(49);
 		}),
 	], [['img', 'froggo.jpg']]),
+
+	Coward: new Scene('ENCOUNTER!', (game) => {
+		let text = "Fearless Frog leans against his crutch, aghast as you bolt away from him. He shoots you in the back of the head for dissapointing everyone. You take 49 points of damage.";
+
+		return text;
+	}, [
+		new LevelButton('Engage', (game) => {
+			game.nextLevel(Scenes.Shop);
+		})
+	], [['img', 'travel.gif']]),
 
 	Fight1: new Scene('Battle!', (game) => {
 		if (Scenes.Fight1.playerVisitedCounter === 1) {
@@ -243,13 +253,13 @@ export var Scenes = {
 			let text = "You deal " + game.atk + " points of damage to Fearless Frog. Fearless frog is weak but he smacks you with his crutch. You recieve 8 points of damage";
 			return text;
 		} else if (Scenes.Fight1.playerVisitedCounter === 5) {
-			let text = "You brutally slaughtered the frog";
+			let text = "You brutally slaughtered the frog.";
 			return text;
 		}
 	}, [
 		new LevelButton('Attack', (game) => {
 			game.nextLevel(Scenes.Fight1);
-			game.froggo(3);
+			game.froggo(8);
 			game.critical();
 		},
 			(game) => {
@@ -293,7 +303,7 @@ export var Scenes = {
 	], [['img', 'fight.gif']]),
 
 	Shop: new Scene('Town Shop', (game) =>{
-		let text = "You only got $5 and the shop is selling a record and a detonator for $5 each. Gerald... Which should you buy?";
+		let text = "You only got $5 from slaying that frog and the shop is selling a record and a detonator for $5 each. Gerald... Which should you buy?";
 		return text;
 	}, [
 		new LevelButton('Buy record', (game) => {
@@ -333,6 +343,9 @@ export var Scenes = {
 	}, [
 		new LevelButton("Destruction", (game) => {
 			game.nextLevel(Scenes.Bad_End);
+			game.receiveMoney();
+			game.receiveMoney();
+			game.receiveMoney();
 		}),
 		new LevelButton("Forgiveness", (game) => {
 			game.nextLevel(Scenes.Good_End);
@@ -340,22 +353,50 @@ export var Scenes = {
 		}),
 			new LevelButton("Use explosives", (game) => {
 			game.nextLevel(Scenes.The_End);
+			game.detonateExplosives();
 		}),
 		], [['img', 'gerald.jpg']]),
 
 	Bad_End: new Scene('Town Shop', (game) =>{
-		let text = "You pull a nice DDT. Gerald is finished. That was kind of messed up, you are not the hero after all.";
+		let text = "You pull a nice DDT. Gerald is finished, your money in your hands. That was kind of messed up tho tbh, you are not the hero after all.";
 		return text;
 	}, [
 		new LevelButton("Bad End", (game) => {
 			game.nextLevel(Scenes.Completionist);
-		}),
-		new LevelButton("Forgiveness", (game) => {
-			game.nextLevel(Scenes.Good_End);
-		}),
-			new LevelButton("Use explosives", (game) => {
-			game.nextLevel(Scenes.The_End);
-		}),
-		], [['img', 'gerald.jpg']]),
+		})
+		], [['img', 'lucha.gif']]),
+
+	Good_End: new Scene('Town Shop', (game) =>{
+		let text = "You negotiate with Gerald and you recieve $5. That was anti climactic but at least you keep your integrity.";
+		return text;
+	}, [
+		new LevelButton("Good End", (game) => {
+			game.nextLevel(Scenes.Completionist);
+		})
+		], [['img', 'forgive.jpg']]),
+
+	The_End: new Scene('Town Shop', (game) =>{
+		if (game.race === "Undead") {
+			let text = "You walk away from an explosion without looking at it. You didn't get your $14 back, but now you can go back to your cave and go back to being dead.";
+			return text;
+		} else {
+			let text = "You walk away from an explosion without looking at it. You didn't get your $14 back, but you got plenty of memories to last a life time.";
+			return text;
+		}
+	}, [
+		new LevelButton("The End", (game) => {
+			game.nextLevel(Scenes.Completionist);
+		})
+		], [['img', 'explode.gif']]),
+
+	Completionist: new Scene('End', (game) =>{
+		let text = "You won!";
+		return text;
+	}, [
+		new LevelButton("Replay?", (game) => {
+			game.nextLevel(Scenes.Cave);
+		})
+		], [['text', 'Thanks for Playing']]),
 
 };
+
