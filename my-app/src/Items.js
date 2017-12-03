@@ -36,12 +36,15 @@ class Inventory extends Component {
 						throwAwayFish = {this.props.throwAwayFish}
 						/>
 					<Explosives
+						Explosives = {this.props.Explosives}
 						detonateExplosives = {this.props.detonateExplosives}
 						/>
 					<Detonator
+						Detonator = {this.props.Detonator}
 						detonatorCurrentState = {this.props.detonatorState}
 						/>
 					<Record
+						Record = {this.props.Record}
 					 	recordCurrentState = {this.props.recordState}
 						/>
 				</StyledBox>

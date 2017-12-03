@@ -33,7 +33,7 @@ class CreateCharacter extends Component {
 			Armor : 1,
 			Bread : 3,
 			Fish : 1,
-			Explosives : 1,
+			Explosives : 2,
 			Detonator : 1,
 			Record : 1,
 			equippedWeaponImage : '',
@@ -141,10 +141,13 @@ class CreateCharacter extends Component {
 				equippedWeaponName = {this.state.equippedWeaponName}
 				equippedArmorImage = {this.state.equippedArmorImage}
 				equippedArmorName = {this.state.equippedArmorName}
+				detonateExplosives = {this.detonateExplosives}
+				isDetonatorFound = {this.state.isDetonatorFound}
+				isRecordFound = {this.state.isRecordFound}
 				 />
 
   		<BackgroundAudio />
-           
+
 			</div>
 			)
 
@@ -183,10 +186,9 @@ class CreateCharacter extends Component {
 				Armor : 1,
 				Bread : 3,
 				Fish : 1,
-				Explosives : 1,
+				Explosives : 2,
 				Detonator : 1,
 				Record : 1,
-
 				isInventoryHidden: true,
 				isEquipmentHidden: true,
 				isGameHidden: true }
@@ -348,6 +350,13 @@ class CreateCharacter extends Component {
 	detonateExplosives(){
 		if(this.state.isDetonatorFound === false) {
 			alert('You need a detonator to use Explosives..')
+		}
+		else {
+			let currentState = this.state.Explosives
+			this.setState(
+				{ Explosives : currentState - 1}
+			)
+			alert('You just blew a freakin hole!')
 		}
 	}
 

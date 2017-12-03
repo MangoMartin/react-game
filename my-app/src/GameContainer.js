@@ -73,6 +73,8 @@ class GameContainer extends Component {
 				Armor = {this.props.Armor}
 				Bread = {this.props.Bread}
 				Fish = {this.props.Fish}
+				Detonator = {this.props.Detonator}
+				Explosives = {this.props.Explosives}
 				useBread = {this.props.useBread}
 				useFish = {this.props.useFish}
         game={game}
@@ -96,7 +98,7 @@ class GameContainer extends Component {
 			</div>
 			  );
 	}
-  
+
 }
 
 export default GameContainer;
