@@ -10,7 +10,7 @@ class PlayerHUD extends Component {
           <h1>Player Name: {this.props.change_PlayerName} </h1>
           <h3>Race: {this.props.chosenRace} </h3>
           <h3>Gender: {this.props.changedGender} </h3>
-          <h7> $$$ : </h7>
+          <h7> $$$ : {this.props.wallet} </h7>
         </div>
         <div>
           <h4>Health Points: {this.props.HealthPoints}/100 </h4>

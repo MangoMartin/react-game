@@ -19,7 +19,7 @@ export class Scene {
 		this.playerVisitedCounter = 0;
 	}
 
-	loadLevel (game) { 
+	loadLevel (game) {
 		let type = typeof(this.level);
 		if (type === 'function') {
 			return this.level(game);
@@ -31,35 +31,35 @@ export class Scene {
 		return '- Error: Text Not A Valid Type -';
 	}
 
-	lvlEnvironment (game) {  
-		var environment = []; 
-		for(let i = 0; i < this.environment.length; i++) { 
-			if (this.environment[i].constructor === Array) { 
-				if (typeof(this.environment[i][0]) === 'function') { 
-					environment.push(this.environment[i][0](game)); 
-				} else if (typeof(this.environment[i][0]) === 'string') { 
+	lvlEnvironment (game) {
+		var environment = [];
+		for(let i = 0; i < this.environment.length; i++) {
+			if (this.environment[i].constructor === Array) {
+				if (typeof(this.environment[i][0]) === 'function') {
+					environment.push(this.environment[i][0](game));
+				} else if (typeof(this.environment[i][0]) === 'string') {
 					let envi0 = this.environment[i][0].toLowerCase();
-					if (envi0 === 'function') { 
-						environment.push(this.environment[i][1](game)); 
-					} else if (envi0 === 'react') { 
-						environment.push(this.environment[i][1]); 
-					} else if (envi0 === 'img' || envi0 === 'image') { 
+					if (envi0 === 'function') {
+						environment.push(this.environment[i][1](game));
+					} else if (envi0 === 'react') {
+						environment.push(this.environment[i][1]);
+					} else if (envi0 === 'img' || envi0 === 'image') {
 						environment.push(<GameImage key={"GameImage-" + i + "-" + this.environment[i][1]} src={this.environment[i][1]} />);
-					} else if (envi0 === 'text') { 
-						environment.push(<GameText key={"GameText-" + i} text={this.environment[i][1]} />); 
-					} else { 
-						environment.push(this.environment[i][1]); 
+					} else if (envi0 === 'text') {
+						environment.push(<GameText key={"GameText-" + i} text={this.environment[i][1]} />);
+					} else {
+						environment.push(this.environment[i][1]);
 					}
 				}
-			} else if (this.environment[i].constructor === Function) { 
-				environment.push(this.environment[i](game)); 
-			} else if (this.environment[i].constructor === String) { 
-				environment.push(this.environment[i]); 
+			} else if (this.environment[i].constructor === Function) {
+				environment.push(this.environment[i](game));
+			} else if (this.environment[i].constructor === String) {
+				environment.push(this.environment[i]);
 			}
 		}
-		return environment; 
+		return environment;
 	}
-	lvlText (game) { 
+	lvlText (game) {
 		let type = typeof(this.text);
 
 		if (type === 'function') {
@@ -67,28 +67,28 @@ export class Scene {
 		} else if (type === 'string') {
 			return ['string', this.text];
 		} else if (type === 'array') {
-			return ['string', this.text.join(' ')]; 
+			return ['string', this.text.join(' ')];
 		}
 		return '!!! Invalid Text Type !!!';
 	}
 
-	
+
 }
 
-export class LevelButton { 
+export class LevelButton {
 	constructor (buttonText, onClick, showButton) {
 		if(!buttonText) buttonText = '!!! No button description !!!';
 
 		if(!onClick) onClick = () => alert("!!! placebo button !!!");
 
 		if(!showButton) showButton = true;
-		
+
 		this.buttonText = buttonText;
 		this.onClick = onClick;
 		this.showButton = showButton;
 	}
 
-	loadButtonText (game) { 
+	loadButtonText (game) {
 		let type = typeof(this.buttonText);
 
 		if (type === 'function') {
@@ -101,16 +101,15 @@ export class LevelButton {
 		return '- Error: Text Not A Valid Type -';
 	}
 
-	loadButton (game) { 
+	loadButton (game) {
 		let type = typeof(this.showButton);
-
 		if (type === 'function') {
-			return this.showButton(game); 
+			return this.showButton(game);
 		} else if (type === 'boolean') {
-			return this.showButton; 
-		} else if (type === 'string' || type === 'number') { 
-			return !!this.showButton; 
-		} 
-		return true; 
+			return this.showButton;
+		} else if (type === 'string' || type === 'number') {
+			return !!this.showButton;
+		}
+		return true;
 	}
 }

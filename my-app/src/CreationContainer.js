@@ -14,6 +14,7 @@ class CreateCharacter extends Component {
 			playerName: '',
 			Race: '',
 			Gender: '',
+			wallet : 0,
 			isBlinking : true,
 			isGameHidden : true,
 			isInventoryHidden : true,
@@ -61,6 +62,8 @@ class CreateCharacter extends Component {
 		this.changeDetonatorState = this.changeDetonatorState.bind(this);
 		this.changeRecordState = this.changeRecordState.bind(this);
 		this.throwAwayExplosives = this.throwAwayExplosives.bind(this);
+		this.receiveMoney = this.receiveMoney.bind(this);
+		this.detonateExplosives = this.detonateExplosives.bind(this);
 	};
 
 	componentDidMount(){
@@ -105,6 +108,8 @@ class CreateCharacter extends Component {
 						<h4>Miko</h4>
 			</div>
 			<GameContainer
+				wallet = {this.state.wallet}
+				receiveMoney = {this.receiveMoney}
 				changeHP = {this.changeHP}
 				takeFrogDamage = {this.takeFrogDamage}
 				doDamage = {this.doDamage}
@@ -159,7 +164,7 @@ class CreateCharacter extends Component {
 		setTimeout(() => {
 		let currentState = this.state.isBlinking
 		this.setState({isBlinking : !currentState})
-	}, 500)}
+	}, 700)}
 
 	handleKeyPress(event){
 		if(event.key === 'Enter'){
@@ -223,7 +228,9 @@ class CreateCharacter extends Component {
 	viewEquip(){
 		this.setState(
 			{ isInventoryHidden : true,
-				isEquipmentHidden : false }
+				isEquipmentHidden : false,
+			 	isDetonatorFound : false,
+				isRecordFound : false}
 		)
 	}
 
@@ -248,7 +255,7 @@ class CreateCharacter extends Component {
 		let currentHP = this.state.HP;
 		this.setState({
 			HP: currentHP - dmg
-		}) 
+		})
 	}
 
 	doDamage() {
@@ -364,12 +371,15 @@ class CreateCharacter extends Component {
 		if(this.state.isDetonatorFound === false) {
 			alert('You need a detonator to use Explosives..')
 		}
-		else {
+		else if(this.state.isDetonatorFound === true && this.state.Explosives > 0) {
 			let currentState = this.state.Explosives
 			this.setState(
 				{ Explosives : currentState - 1 }
 			)
 			alert('You just blew a freakin hole!')
+		}
+		else {
+			alert('Ran out of explosives!')
 		}
 	}
 
@@ -382,6 +392,13 @@ class CreateCharacter extends Component {
 		else {
 			alert('No more explosives to throw away!')
 		}
+	}
+
+	receiveMoney(){
+		let currentWallet = this.state.wallet
+		this.setState(
+			{	wallet : currentWallet + 5 }
+		)
 	}
 
 }

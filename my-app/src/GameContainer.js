@@ -25,12 +25,9 @@ class GameContainer extends Component {
 					presentLevelArgs: passArgs || prevState.presentLevelArgs
 				};
 			});
-			if(scene !== this.state.currentScene){
-				scene.playerVisitedCounter++;
-			}
-		} else {
-			alert("There was an error going to a scene.");
-		}
+		scene.playerVisitedCounter++;
+		} 
+
 	}
 
 	componentDidMount () {
@@ -56,6 +53,8 @@ class GameContainer extends Component {
 			enemy: this.props.enemyLife,
 			boughtRecord: this.props.changeRecordState,
 			boughtDet: this.props.changeDetonatorState,
+			receiveMoney : this.props.receiveMoney,
+			detonateExplosives: this.props.detonateExplosives
 			};
 		return(
 			<div
@@ -63,6 +62,7 @@ class GameContainer extends Component {
 				className = {this.props.changeThis ? 'state-hide' : 'state-view'}
 				>
 			<PlayerHUD
+				wallet = {this.props.wallet}
 				viewInventory = {this.props.viewInventory}
 				HealthPoints = {this.props.HP}
 				takeFrogDamage = {this.props.takeFrogDamage}
@@ -94,7 +94,7 @@ class GameContainer extends Component {
 				Explosives = {this.props.Explosives}
 				useBread = {this.props.useBread}
 				useFish = {this.props.useFish}
-        game={game}
+        		game={game}
 				detonatorState = {this.props.isDetonatorFound}
 				recordState = {this.props.isRecordFound}
 				throwAway = {this.props.throwAway}
@@ -106,15 +106,19 @@ class GameContainer extends Component {
 				detonateExplosives = {this.props.detonateExplosives}
 				/>
 			<Equipment
-			  isEquipmentHidden = {this.props.isEquipmentHidden}
+			  	isEquipmentHidden = {this.props.isEquipmentHidden}
 				equippedWeaponImage = {this.props.equippedWeaponImage}
 				equippedWeaponName = {this.props.equippedWeaponName}
 				equippedArmorImage = {this.props.equippedArmorImage}
 				equippedArmorName = {this.props.equippedArmorName}
 				/>
-			<SceneContainer 
+
+			<SceneContainer
+			receiveMoney = {this.props.receiveMoney}
+			HealthPoints = {this.props.HP}
 			changeRecordState = {this.props.changeRecordState}
 			changeDetonatorState = {this.props.changeDetonatorState}
+			detonateExplosives = {this.props.detonateExplosives}
 			enemyLife = {this.props.enemyLife}
 			game = {game}/>
 			</div>
