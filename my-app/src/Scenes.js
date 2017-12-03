@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
 	Scene,
 	LevelButton
 } from './Scene.js';
 import StyledBox from './Container.js';
 import {
-	GameText,
-	ValueInput,
 	GameFullText,
-	OptionSelect,
-	GameImage,
 	MainTitle
 } from './GameMisc';
 import {

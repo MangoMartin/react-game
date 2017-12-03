@@ -1,10 +1,9 @@
 import React from 'react';
 
 import {
-	GameText,
-	GameFullText,
-	GameImage
-} from './GameMisc.js';
+	GameText, 
+	GameImage 
+} from './GameMisc.js'; 
 
 export class Scene {
 	constructor (level, text, buttons, environment) {
