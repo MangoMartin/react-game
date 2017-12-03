@@ -59,6 +59,7 @@ class GameContainer extends Component {
 			enemy: this.props.enemyLife,
 			boughtRecord: this.props.changeRecordState,
 			boughtDet: this.props.changeDetonatorState,
+			receiveMoney : this.props.receiveMoney
 			};
 		return(
 			<div
@@ -66,6 +67,7 @@ class GameContainer extends Component {
 				className = {this.props.changeThis ? 'state-hide' : 'state-view'}
 				>
 			<PlayerHUD
+				wallet = {this.props.wallet}
 				viewInventory = {this.props.viewInventory}
 				HealthPoints = {this.props.HP}
 				takeFrogDamage = {this.props.takeFrogDamage}
@@ -115,7 +117,8 @@ class GameContainer extends Component {
 				equippedArmorImage = {this.props.equippedArmorImage}
 				equippedArmorName = {this.props.equippedArmorName}
 				/>
-			<SceneContainer 
+			<SceneContainer
+			receiveMoney = {this.props.receiveMoney}
 			changeRecordState = {this.props.changeRecordState}
 			changeDetonatorState = {this.props.changeDetonatorState}
 			enemyLife = {this.props.enemyLife}

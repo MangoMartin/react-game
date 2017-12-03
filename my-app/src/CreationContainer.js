@@ -20,6 +20,7 @@ class CreateCharacter extends Component {
 			playerName: '',
 			Race: '',
 			Gender: '',
+			wallet : 0,
 			isBlinking : true,
 			isGameHidden : true,
 			isInventoryHidden : true,
@@ -67,6 +68,7 @@ class CreateCharacter extends Component {
 		this.changeDetonatorState = this.changeDetonatorState.bind(this);
 		this.changeRecordState = this.changeRecordState.bind(this);
 		this.throwAwayExplosives = this.throwAwayExplosives.bind(this);
+		this.receiveMoney = this.receiveMoney.bind(this);
 	};
 
 	componentDidMount(){
@@ -111,6 +113,8 @@ class CreateCharacter extends Component {
 						<h4>Miko</h4>
 			</div>
 			<GameContainer
+				wallet = {this.state.wallet}
+				receiveMoney = {this.receiveMoney}
 				changeHP = {this.changeHP}
 				takeFrogDamage = {this.takeFrogDamage}
 				doDamage = {this.doDamage}
@@ -165,7 +169,7 @@ class CreateCharacter extends Component {
 		setTimeout(() => {
 		let currentState = this.state.isBlinking
 		this.setState({isBlinking : !currentState})
-	}, 500)}
+	}, 700)}
 
 	handleKeyPress(event){
 		let stateOfGame = this.state.isGameHidden;
@@ -399,6 +403,13 @@ class CreateCharacter extends Component {
 		else {
 			alert('No more explosives to throw away!')
 		}
+	}
+
+	receiveMoney(){
+		let currentWallet = this.state.wallet
+		this.setState(
+			{	wallet : currentWallet + 5 }
+		)
 	}
 
 }
