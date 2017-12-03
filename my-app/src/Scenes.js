@@ -22,6 +22,7 @@ export class SceneContainer extends React.Component {
 				text={(!noLevelPresent) ? presentLevel.loadLevel(this.props.game) : '.....'}
 			/>
 			<GameFullText
+				id="text-img"
 				noLevelPresent={noLevelPresent}
 				game={this.props.game}
 				presentLevel={presentLevel}

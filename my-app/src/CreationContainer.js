@@ -45,7 +45,7 @@ class CreateCharacter extends Component {
 		this.handleChangeName = this.handleChangeName.bind(this);
 		this.chooseRace = this.chooseRace.bind(this);
 		this.changeGender = this.changeGender.bind(this);
-		this.exitGame	= this.exitGame.bind(this);
+		this.exitGame = this.exitGame.bind(this);
 		this.viewInventory = this.viewInventory.bind(this);
 		this.viewEquip = this.viewEquip.bind(this);
 		this.changeHP = this.changeHP.bind(this);

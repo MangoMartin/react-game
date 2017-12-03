@@ -31,7 +31,9 @@ export class GameFullText extends Component {
     }
 
     return(
-      <StyledBox>
+      <StyledBox
+        id="textNimg"
+      >
 
         {extras.map((val, index) => {
           if(typeof(val) === 'string') {
