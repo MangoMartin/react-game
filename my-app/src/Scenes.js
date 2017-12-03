@@ -309,7 +309,7 @@ export var Scenes = {
 		], [['img', 'shop.jpg']]),
 
 	Bought: new Scene('Town Shop', (game) =>{
-		let text = "Why did you buy that?";
+		let text = "Why did you buy that? Now you are broke.";
 		return text;
 	}, [
 		new LevelButton("Leave here forever", (game) => {
