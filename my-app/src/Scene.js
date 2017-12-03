@@ -2,7 +2,6 @@ import React from 'react';
 
 import {
 	GameText, 
-	GameFullText,
 	GameImage 
 } from './GameMisc.js'; 
 

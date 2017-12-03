@@ -10,7 +10,7 @@ export class Food extends Component {
 			<div>
 			<StyledBox
 				id = 'food-item'>
-				<img src={require('./item-images/260-0.png')} />
+				<img src={require('./item-images/260-0.png')} alt= " "/>
 				<h1>
 					Fuji Apple x {this.props.foodSupply}
 				</h1>
@@ -28,7 +28,7 @@ export class Weapon extends Component {
 		return(
 			<StyledBox
 				id = 'weapon-item'>
-				<img src = {require('./item-images/267-0.png')} />
+				<img src = {require('./item-images/267-0.png')} alt= " "/>
 				<h1>
 					Sword x {this.props.Weapon}
 				</h1>
@@ -45,7 +45,7 @@ export class Armor extends Component {
 		return(
 			<StyledBox
 				id = 'armor-item'>
-			 <img src = {require('./item-images/311-0.png')} />
+			 <img src = {require('./item-images/311-0.png')} alt= " "/>
 			 <h1>
 			 		Chainmail x {this.props.Armor}
 			 </h1>
@@ -62,7 +62,7 @@ export class Bread extends Component {
 			return(
 				<StyledBox
 					id = 'bread'>
-					<img src = {require('./item-images/297-0.png')} />
+					<img src = {require('./item-images/297-0.png')} alt= " "/>
 	 			 <h1>
 	 			 		Stale Bread x {this.props.Bread}
 	 			 </h1>
@@ -79,7 +79,7 @@ export class Fish extends Component {
 			return(
 				<StyledBox
 					id = 'fish'>
-					<img src = {require('./item-images/349-2.png')} />
+					<img src = {require('./item-images/349-2.png')} alt= " "/>
 	 			 <h1>
 	 			 	Poisonous Blowfish x {this.props.Fish}
 	 			 </h1>
@@ -97,7 +97,7 @@ export class Explosives extends Component {
 			return(
 				<StyledBox
 					id = 'explosives'>
-					<img src = {require('./item-images/46-0.png')} />
+					<img src = {require('./item-images/46-0.png')} alt= " "/>
 	 			 <h1>
 	 			 	Explosives x {this.props.Explosives}
 	 			 </h1>
@@ -115,7 +115,7 @@ export class Detonator extends Component {
 				<StyledBox
 					id = 'detonator'
 					className = {this.props.detonatorCurrentState ? 'view' : 'hide'}>
-					<img src = {require('./item-images/407-0.png')} />
+					<img src = {require('./item-images/407-0.png')} alt= " "/>
 	 			 <h1>
 	 			 	Detonator x {this.props.Detonator}
 	 			 </h1>
@@ -134,7 +134,7 @@ export class Record extends Component {
 				id = 'record'
 				className = {this.props.recordCurrentState ? 'view' : 'hide'}
 				>
-				<img src = {require('./item-images/2260-0.png')} />
+				<img src = {require('./item-images/2260-0.png')} alt= " "/>
 			 <h1>
 				Record x {this.props.Record}
 			 </h1>

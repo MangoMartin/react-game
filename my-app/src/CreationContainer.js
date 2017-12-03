@@ -1,13 +1,7 @@
 // for character creation
 import React, { Component } from 'react';
-import {BrowserRouter as Router,
-		Link,
-		Route} from 'react-router-dom';
 import GameContainer from './GameContainer.js';
-import ReactDOM from 'react-dom';
-import PlayerContainer from './PlayerContainer.js';
 import BackgroundAudio from './Sound.js';
-import sound from './audio/LabyrinthCut.mp3';
 let weapon_image = require('./item-images/267-0.png');
 let armor_image = require('./item-images/311-0.png');
 
@@ -168,8 +162,7 @@ class CreateCharacter extends Component {
 	}, 500)}
 
 	handleKeyPress(event){
-		let stateOfGame = this.state.isGameHidden;
-		if(event.key == 'Enter'){
+		if(event.key === 'Enter'){
 			this.setState(
 			{
 				isGameHidden: false,
@@ -220,7 +213,6 @@ class CreateCharacter extends Component {
 	}
 
 	viewInventory(){
-		let currentState = this.state.isInventoryHidden
 		this.setState(
 			{ isInventoryHidden: false,
 				isEquipmentHidden : true
@@ -229,7 +221,6 @@ class CreateCharacter extends Component {
 	}
 
 	viewEquip(){
-		let currentEquipState = this.state.isEquipmentHidden;
 		this.setState(
 			{ isInventoryHidden : true,
 				isEquipmentHidden : false }
@@ -281,8 +272,7 @@ class CreateCharacter extends Component {
 	}
 
 	throwAway() {
-		let currentFoodSupply = this.state.foodSupply
-		let currentHP = this.state.HP;
+		let currentFoodSupply = this.state.foodSupply;
 		if(currentFoodSupply > 0) {
 		this.setState(
 			{ foodSupply : currentFoodSupply - 1 }
@@ -346,7 +336,6 @@ class CreateCharacter extends Component {
 
 	equipSword(){
 		let Weapon = this.state.Weapon;
-		let equippedWeaponName = this.state.equippedWeapon;
 		let imageOfaSword = weapon_image;
 		let Atk = this.state.Atk;
 		if(Weapon > 0){
@@ -360,7 +349,6 @@ class CreateCharacter extends Component {
 
 	equipArmor(){
 		let Armor = this.state.Armor;
-		let equippedArmorName = this.state.equippedArmorName;
 		let imageOfanArmor = armor_image;
 		let Def = this.state.Def;
 		if (Armor > 0){

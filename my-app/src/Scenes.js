@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
 	Scene,
 	LevelButton
 } from './Scene.js';
 import StyledBox from './Container.js';
 import {
-	GameText,
-	ValueInput,
 	GameFullText,
-	OptionSelect,
-	GameImage,
 	MainTitle
 } from './GameMisc';
 import {
@@ -249,7 +245,7 @@ export var Scenes = {
 	}, [
 		new LevelButton('Attack', (game) => {
 			game.nextLevel(Scenes.Fight1);
-			game.froggo(3);
+			game.froggo(8);
 			game.critical();
 		}, 
 			(game) => { 

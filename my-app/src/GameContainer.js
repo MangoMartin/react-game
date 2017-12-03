@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Box from './Container.js';
 import PlayerHUD from './PlayerContainer.js';
 import Inventory from './Items.js';
 import {
@@ -7,9 +6,7 @@ import {
 	Scenes
 } from './Scenes.js';
 import Equipment from './Equipment.js'
-import {Food, Weapon} from './Item.js';
 
-//Parent Component
 class GameContainer extends Component {
 	constructor (props) {
 		super(props);

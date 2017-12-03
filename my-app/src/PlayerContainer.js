@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import StyledBox from './Container.js';
 
 class PlayerHUD extends Component {
 
