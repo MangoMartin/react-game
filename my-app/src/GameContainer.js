@@ -6,7 +6,7 @@ import {
 	SceneContainer,
 	Scenes
 } from './Scenes.js';
-
+import Equipment from './Equipment.js'
 import {Food, Weapon} from './Item.js';
 
 //Parent Component
@@ -16,13 +16,11 @@ class GameContainer extends Component {
 
 		this.state = {
 			presentLevel: null,
-			HP: 50,
-			foodSupply: 5,
-			isInventoryHidden : false
+
+
 		}
+
 		this.Scenes = Scenes;
-		this.changeHP = this.changeHP.bind(this);
-		this.newState = this.newState.bind(this);
 	}
 
 
@@ -54,47 +52,51 @@ class GameContainer extends Component {
 				className = {this.props.changeThis ? 'state-hide' : 'state-view'}
 				>
 			<PlayerHUD
-				newerState = {this.newState}
-				HealthPoints = {this.state.HP}
+				viewInventory = {this.props.viewInventory}
+				HealthPoints = {this.props.HP}
 				change_for_the_last_time = {this.props.changeThis}
 				chosenRace = {this.props.change_Race}
 				changedGender = {this.props.change_Gender}
 				change_PlayerName = {this.props.change_playerName}
-        		game={game}
+				viewEquip = {this.props.viewEquip}
+				exitGame = {this.props.exitGame}
+				Atk = {this.props.Atk}
+				Def = {this.props.Def}
+				Mana = {this.props.Mana}
+        game={game}
 				/>
 			<Inventory
-				currentInventoryState = {this.state.isInventoryHidden}
-				propsHP = {this.changeHP}
-				propsFoodSupply = {this.state.foodSupply}
-        		game={game}
+				currentInventoryState = {this.props.isInventoryHidden}
+				changeHP = {this.props.changeHP}
+				foodSupply = {this.props.foodSupply}
+				Weapon = {this.props.Weapon}
+				Armor = {this.props.Armor}
+				Bread = {this.props.Bread}
+				Fish = {this.props.Fish}
+				useBread = {this.props.useBread}
+				useFish = {this.props.useFish}
+        game={game}
+				detonatorState = {this.props.isDetonatorFound}
+				recordState = {this.props.isRecordFound}
+				throwAway = {this.props.throwAway}
+				throwAwayBread = {this.props.throwAwayBread}
+				throwAwayFish = {this.props.throwAwayFish}
+				equipSword = {this.props.equipSword}
+				equipArmor = {this.props.equipArmor}
+				detonateExplosives = {this.props.detonateExplosives}
+				/>
+			<Equipment
+			  isEquipmentHidden = {this.props.isEquipmentHidden}
+				equippedWeaponImage = {this.props.equippedWeaponImage}
+				equippedWeaponName = {this.props.equippedWeaponName}
+				equippedArmorImage = {this.props.equippedArmorImage}
+				equippedArmorName = {this.props.equippedArmorName}
 				/>
 			<SceneContainer game={game}/>
 			</div>
 			  );
-				
 	}
-
-
-	changeHP(){
-		let currentHP = this.state.HP;
-		let currentFoodSupply = this.state.foodSupply;
-		if(currentFoodSupply > 0) {
-		this.setState(
-		{
-			HP: currentHP + 10,
-			foodSupply: currentFoodSupply - 1
-		})}
-	}
-
-	newState(){
-		let currentState = this.state.isInventoryHidden
-		this.setState(
-			{ isInventoryHidden: !currentState,
-			}
-		)
-	}
-
-
+  
 }
 
 export default GameContainer;
