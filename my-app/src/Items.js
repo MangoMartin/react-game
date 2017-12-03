@@ -38,6 +38,7 @@ class Inventory extends Component {
 					<Explosives
 						Explosives = {this.props.Explosives}
 						detonateExplosives = {this.props.detonateExplosives}
+						throwAwayExplosives = {this.props.throwAwayExplosives}
 						/>
 					<Detonator
 						Detonator = {this.props.Detonator}

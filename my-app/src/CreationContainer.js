@@ -44,12 +44,12 @@ class CreateCharacter extends Component {
 			isRecordFound : false
 		};
 
-		this.blinky = this.blinky.bind(this)
-		this.handleKeyPress = this.handleKeyPress.bind(this)
-		this.handleChangeName = this.handleChangeName.bind(this)
-		this.chooseRace = this.chooseRace.bind(this)
-		this.changeGender = this.changeGender.bind(this)
-		this.exitGame	= this.exitGame.bind(this)
+		this.blinky = this.blinky.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this);
+		this.handleChangeName = this.handleChangeName.bind(this);
+		this.chooseRace = this.chooseRace.bind(this);
+		this.changeGender = this.changeGender.bind(this);
+		this.exitGame	= this.exitGame.bind(this);
 		this.viewInventory = this.viewInventory.bind(this);
 		this.viewEquip = this.viewEquip.bind(this);
 		this.changeHP = this.changeHP.bind(this);
@@ -61,6 +61,7 @@ class CreateCharacter extends Component {
 		this.equipSword = this.equipSword.bind(this);
 		this.equipArmor = this.equipArmor.bind(this);
 		this.detonateExplosives = this.detonateExplosives.bind(this);
+		this.throwAwayExplosives = this.throwAwayExplosives.bind(this);
 
 	};
 
@@ -112,6 +113,7 @@ class CreateCharacter extends Component {
 				throwAway = {this.throwAway}
 				throwAwayBread = {this.throwAwayBread}
 				throwAwayFish = {this.throwAwayFish}
+				throwAwayExplosives = {this.throwAwayExplosives}
 				equipSword = {this.equipSword}
 				equipArmor = {this.equipArmor}
 				viewInventory = {this.viewInventory}
@@ -145,12 +147,9 @@ class CreateCharacter extends Component {
 				isDetonatorFound = {this.state.isDetonatorFound}
 				isRecordFound = {this.state.isRecordFound}
 				 />
-
   		<BackgroundAudio />
-
 			</div>
 			)
-
 }
 
 	blinky() {
@@ -170,8 +169,6 @@ class CreateCharacter extends Component {
 	}
 
 	exitGame() {
-		console.log(this.state.isInventoryHidden)
-		console.log(this.state.isEquipmentHidden)
 		this.setState(
 			{
 				playerName : '',
@@ -193,8 +190,6 @@ class CreateCharacter extends Component {
 				isEquipmentHidden: true,
 				isGameHidden: true }
 		)
-		console.log(this.state.isInventoryHidden)
-		console.log(this.state.isEquipmentHidden)
 	}
 
 	handleChangeName(event){
@@ -268,6 +263,9 @@ class CreateCharacter extends Component {
 		this.setState(
 			{ foodSupply : currentFoodSupply - 1 }
 		)}
+		else {
+			alert('No more apples to throw away!')
+		}
 	}
 
 	useBread(){
@@ -292,6 +290,9 @@ class CreateCharacter extends Component {
 		this.setState(
 			{ Bread : currentFoodSupply - 1 }
 		)}
+		else {
+			alert('Stop wasting food!')
+		}
 	}
 
 	useFish(){
@@ -354,9 +355,20 @@ class CreateCharacter extends Component {
 		else {
 			let currentState = this.state.Explosives
 			this.setState(
-				{ Explosives : currentState - 1}
+				{ Explosives : currentState - 1 }
 			)
 			alert('You just blew a freakin hole!')
+		}
+	}
+
+	throwAwayExplosives() {
+		let currentState = this.state.Explosives
+		if(currentState > 0) {
+		this.setState(
+			{ Explosives : currentState - 1 }
+		)}
+		else {
+			alert('No more explosives to throw away!')
 		}
 	}
 
