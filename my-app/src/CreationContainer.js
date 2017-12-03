@@ -40,7 +40,8 @@ class CreateCharacter extends Component {
 			equippedArmorImage : '',
 			equippedArmorName : '',
 			isDetonatorFound : false,
-			isRecordFound : false
+			isRecordFound : false,
+			enemyLife: 100
 		};
 
 		this.blinky = this.blinky.bind(this)
@@ -60,7 +61,10 @@ class CreateCharacter extends Component {
 		this.equipSword = this.equipSword.bind(this);
 		this.equipArmor = this.equipArmor.bind(this);
 		this.detonateExplosives = this.detonateExplosives.bind(this);
-
+		this.takeFrogDamage = this.takeFrogDamage.bind(this);
+		this.doDamage = this.doDamage.bind(this);
+		this.changeDetonatorState = this.changeDetonatorState.bind(this);
+		this.changeRecordState = this.changeRecordState.bind(this);
 	};
 
 	componentDidMount(){
@@ -106,6 +110,11 @@ class CreateCharacter extends Component {
 			</div>
 			<GameContainer
 				changeHP = {this.changeHP}
+				takeFrogDamage = {this.takeFrogDamage}
+				doDamage = {this.doDamage}
+				enemyLife = {this.state.enemyLife}
+				changeRecordState = {this.changeRecordState}
+				changeDetonatorState = {this.changeDetonatorState}
 				useFish = {this.useFish}
 				useBread = {this.useBread}
 				throwAway = {this.throwAway}
@@ -240,6 +249,21 @@ class CreateCharacter extends Component {
 		else {
 			alert('You ran out of apples')
 		}
+	}
+
+	takeFrogDamage(dmg){
+		let currentHP = this.state.HP;
+		this.setState({
+			HP: currentHP - dmg
+		}) 
+	}
+
+	doDamage() {
+		let currentLife = this.state.enemyLife;
+		let damageDone = this.state.Atk;
+		this.setState({
+			enemyLife: currentLife - damageDone
+		})
 	}
 
 	changeDetonatorState(){

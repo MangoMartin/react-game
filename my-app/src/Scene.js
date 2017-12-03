@@ -17,6 +17,7 @@ export class Scene {
 		this.text = text;
 		this.buttons = buttons;
 		this.environment = environment;
+		this.playerVisitedCounter = 0;
 	}
 
 	loadLevel (game) { 
