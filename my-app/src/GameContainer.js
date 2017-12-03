@@ -16,13 +16,10 @@ class GameContainer extends Component {
 
 		this.state = {
 			presentLevel: null,
-
-
 		}
 
 		this.Scenes = Scenes;
 	}
-
 
 	nextLevel (scene, passArgs) {
 		if (scene !== null) {
