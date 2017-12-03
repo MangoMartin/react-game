@@ -28,6 +28,11 @@ class GameContainer extends Component {
 					presentLevelArgs: passArgs || prevState.presentLevelArgs
 				};
 			});
+			if(scene !== this.state.currentScene){
+				scene.playerVisitedCounter++;
+			}
+		} else {
+			alert("There was an error going to a scene.");
 		}
 	}
 
@@ -35,12 +40,25 @@ class GameContainer extends Component {
 		this.nextLevel(this.Scenes.Cave);
   	}
 
+
 	render(){
     let game = {
 			state: this.state,
 			setState: this.setState.bind(this),
 			Scenes: this.Scenes,
 			nextLevel: this.nextLevel.bind(this),
+			name: this.props.change_playerName,
+			gender: this.props.change_Gender,
+			race: this.props.change_Race,
+			currentHealth: this.props.HP,
+			atk: this.props.Atk,
+			def: this.props.Def,
+			mana: this.props.Mana,
+			froggo: this.props.takeFrogDamage,
+			critical: this.props.doDamage,
+			enemy: this.props.enemyLife,
+			boughtRecord: this.props.changeRecordState,
+			boughtDet: this.props.changeDetonatorState,
 			};
 		return(
 			<div
@@ -50,6 +68,8 @@ class GameContainer extends Component {
 			<PlayerHUD
 				viewInventory = {this.props.viewInventory}
 				HealthPoints = {this.props.HP}
+				takeFrogDamage = {this.props.takeFrogDamage}
+				doDamage = {this.props.doDamage}
 				change_for_the_last_time = {this.props.changeThis}
 				chosenRace = {this.props.change_Race}
 				changedGender = {this.props.change_Gender}
@@ -62,7 +82,11 @@ class GameContainer extends Component {
         game={game}
 				/>
 			<Inventory
+				changeRecordState = {this.props.changeRecordState}
+				changeDetonatorState = {this.props.changeDetonatorState}
 				currentInventoryState = {this.props.isInventoryHidden}
+				takeFrogDamage = {this.props.takeFrogDamage}
+				doDamage = {this.props.doDamage}
 				changeHP = {this.props.changeHP}
 				foodSupply = {this.props.foodSupply}
 				Weapon = {this.props.Weapon}
@@ -91,7 +115,11 @@ class GameContainer extends Component {
 				equippedArmorImage = {this.props.equippedArmorImage}
 				equippedArmorName = {this.props.equippedArmorName}
 				/>
-			<SceneContainer game={game}/>
+			<SceneContainer 
+			changeRecordState = {this.props.changeRecordState}
+			changeDetonatorState = {this.props.changeDetonatorState}
+			enemyLife = {this.props.enemyLife}
+			game = {game}/>
 			</div>
 			  );
 	}
