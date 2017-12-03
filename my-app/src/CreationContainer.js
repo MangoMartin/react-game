@@ -6,11 +6,12 @@ import {BrowserRouter as Router,
 import GameContainer from './GameContainer.js';
 import ReactDOM from 'react-dom';
 import PlayerContainer from './PlayerContainer.js';
+import BackgroundAudio from './Sound.js';
+import sound from './audio/LabyrinthCut.mp3';
 let weapon_image = require('./item-images/267-0.png');
 let armor_image = require('./item-images/311-0.png');
 
 class CreateCharacter extends Component {
-
 
 	constructor() {
 		super();
@@ -141,9 +142,13 @@ class CreateCharacter extends Component {
 				equippedArmorImage = {this.state.equippedArmorImage}
 				equippedArmorName = {this.state.equippedArmorName}
 				 />
+
+  		<BackgroundAudio />
+           
 			</div>
 			)
-	}
+
+}
 
 	blinky() {
 		setTimeout(() => {

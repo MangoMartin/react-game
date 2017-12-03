@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import StyledBox from './Container.js';
 
-// import {
-//   // applicable containers
-// } from './wherever we decide'
-import {
-  // Drop down menu
-} from './DropDown.js'
-
 export class GameFullText extends Component {
   render() {
     var text,
@@ -26,7 +19,7 @@ export class GameFullText extends Component {
           text = text.split('\n').map((text, index) => {
             return(
               <GameText
-                key={'GameTitle-' + index  + '-' + (index*2)}
+                key={'MainTitle-' + index  + '-' + (index*2)}
                 text={text}
             />
           );
@@ -39,12 +32,12 @@ export class GameFullText extends Component {
 
     return(
       <StyledBox>
-        
+
         {extras.map((val, index) => {
           if(typeof(val) === 'string') {
             return(
               <GameText
-                key={'GameTitle-' + index + '-Extra-' + (index*2)}
+                key={'MainTitle-' + index + '-Extra-' + (index*2)}
                 text={val}
               />
             );
@@ -159,7 +152,7 @@ export class OptionSelect extends Component {
 export class GameImage extends Component {
   render() {
     return (
-      <img 
+      <img
         id = 'level-image'
         src={this.props.src}
         alt=''
@@ -170,14 +163,14 @@ export class GameImage extends Component {
 
 //from style: display: 'inline', marginLeft: '5%'
 
-// export class ItemMenu extends Component {v
+// export class ItemMenu extends Component {
 //   render() {
 //     return (
 //       <div class Name='item-menu'>
 //         <h3>
 //         {this.props.item.getName(this.props.game)}<DropdownMenu
 //           style={{
-
+//
 //           }}
 //           options={[
 //             {

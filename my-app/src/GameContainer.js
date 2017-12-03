@@ -96,6 +96,7 @@ class GameContainer extends Component {
 			</div>
 			  );
 	}
+  
 }
 
 export default GameContainer;
