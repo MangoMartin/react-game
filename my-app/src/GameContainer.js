@@ -45,6 +45,13 @@ class GameContainer extends Component {
 			setState: this.setState.bind(this),
 			Scenes: this.Scenes,
 			nextLevel: this.nextLevel.bind(this),
+			name: this.props.change_playerName,
+			gender: this.props.change_Gender,
+			race: this.props.change_Race,
+			currentHealth: this.props.HP,
+			atk: this.props.Atk,
+			def: this.props.Def,
+			mana: this.props.Mana,
 			};
 		return(
 			<div
