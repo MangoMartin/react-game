@@ -67,11 +67,13 @@ class CreateCharacter extends Component {
 	};
 
 	componentDidMount(){
-		window.addEventListener('keypress', this.handleKeyPress)
+		window.addEventListener('keypress', this.handleKeyPress);
+    	document.title = "Petty Cash Quest";
 	}
 
 	render(){
 		return(
+
 			<div
 				className = 'CreateCharacter'
 				>
